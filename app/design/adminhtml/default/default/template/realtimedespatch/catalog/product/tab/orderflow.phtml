@@ -1,0 +1,17 @@
+<?php if (Mage::helper('realtimedespatch/admin_info')->isEnabled()): ?>
+    <?php $orderFlowHelper = Mage::helper('realtimedespatch'); ?>
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-payment-method"><?php echo Mage::helper('sales')->__('OrderFlow') ?></h4>
+        </div>
+        <fieldset>
+            <p>
+                OrderFlow users with the appropriate permissions can use the link below to view or edit the product in the OrderFlow environment. Note that any changes made in OrderFlow will not be reflected in Magento.
+            </p>
+
+            <a target="_blank" title="View Product" href="<?php echo $orderFlowHelper->getApiEndpoint()?>inventory/product/referenceDetail.htm?externalReference=<?php echo urlencode(Mage::registry('product')->getSku()); ?> &channel=<?php echo urlencode($orderFlowHelper->getApiChannel()); ?>">
+                <?php echo $orderFlowHelper->getApiEndpoint()?>"inventory/product/referenceDetail.htm?externalReference=<?php echo urlencode(Mage::registry('product')->getSku()); ?>&channel=<?php echo urlencode($orderFlowHelper->getApiChannel()); ?>
+            </a>
+        </fieldset>
+    </div>
+<?php endif; ?>

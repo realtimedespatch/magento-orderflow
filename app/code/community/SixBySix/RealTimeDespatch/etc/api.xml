@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <orderflow_shipment>
+                <model>realtimedespatch/sales_order_shipment_api</model>
+                <title>OrderFlow API</title>
+                <acl>orderflow</acl>
+                <methods>
+                    <create translate="title" module="realtimedespatch">
+                        <title>Create OrderFlow Shipment</title>
+                        <method>create</method>
+                    </create>
+                </methods>
+            </orderflow_shipment>
+            <orderflow_inventory>
+                <model>realtimedespatch/inventory_stock_item_api</model>
+                <title>OrderFlow API</title>
+                <acl>orderflow</acl>
+                <methods>
+                    <multiUpdate translate="title" module="realtimedespatch">
+                        <title>Update Multiple Stock Items</title>
+                        <method>multiUpdate</method>
+                    </multiUpdate>                    
+                </methods>
+            </orderflow_inventory>            
+        </resources>
+        <v2>
+            <resources_function_prefix>
+                <orderflow_shipment>orderflowShipment</orderflow_shipment>
+                <orderflow_inventory>orderflowInventory</orderflow_inventory>
+            </resources_function_prefix>
+        </v2>
+        <acl>
+            <resources>
+                <orderflow translate="title" module="realtimedespatch">
+                    <title>OrderFlow Import</title>
+                    <sort_order>1</sort_order>
+                </orderflow>
+            </resources>
+        </acl>
+    </api>
+</config>

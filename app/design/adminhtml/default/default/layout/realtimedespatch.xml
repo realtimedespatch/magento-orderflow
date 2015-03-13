@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<layout>
+   <adminhtml_system_config_edit>
+       <reference name="head">
+       <action method="addItem">
+           <type>skin_css</type>
+           <name>realtimedespatch/css/styles.css</name>
+       </action>
+       </reference>
+   </adminhtml_system_config_edit>
+   <adminhtml_productexports_index>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_exports" name="exports" />
+        </reference>
+    </adminhtml_productexports_index>
+   <adminhtml_productexports_view>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_exports_view" name="view" />
+        </reference>
+    </adminhtml_productexports_view>
+   <adminhtml_orderexports_index>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_exports" name="exports" />
+        </reference>
+    </adminhtml_orderexports_index>
+   <adminhtml_orderexports_view>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_exports_view" name="view" />
+        </reference>
+    </adminhtml_orderexports_view>
+   <adminhtml_shipmentimports_index>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_imports" name="imports" />
+        </reference>
+    </adminhtml_shipmentimports_index>
+   <adminhtml_shipmentimports_view>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_imports_view" name="view" />
+        </reference>
+    </adminhtml_shipmentimports_view>
+   <adminhtml_inventoryimports_index>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_imports" name="imports" />
+        </reference>
+    </adminhtml_inventoryimports_index>
+   <adminhtml_inventoryimports_view>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_imports_view" name="view" />
+        </reference>
+    </adminhtml_inventoryimports_view>
+   <adminhtml_processschedule_index>
+       <reference name="messages">
+           <action method="addNotice" translate="message">
+               <message>The schedule shows the pending queue of incoming and outgoing messages waiting to be exchanged with OrderFlow and the results of the last attempted exchange for each message type.</message>
+           </action>
+       </reference>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_process_schedule" name="process_schedule" />
+        </reference>
+    </adminhtml_processschedule_index>
+    <adminhtml_sales_order_view>
+        <reference name="left">
+            <reference name="sales_order_tabs">
+                <reference name="order_tab_info">
+                    <action method="setTemplate">
+                        <template>realtimedespatch/sales/order/view/tab/info.phtml</template>
+                    </action>
+                </reference>
+            </reference>
+        </reference>
+    </adminhtml_sales_order_view>
+    <adminhtml_sales_order_creditmemo_new>
+        <reference name="content">
+            <reference name="sales_creditmemo_create">
+                <reference name="form">
+                    <action method="setTemplate">
+                        <template>realtimedespatch/sales/order/creditmemo/create/form.phtml</template>
+                    </action>
+                </reference>
+            </reference>
+        </reference>
+    </adminhtml_sales_order_creditmemo_new>
+</layout>

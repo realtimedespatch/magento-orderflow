@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<config>
+   <sections>
+        <sixbysix_realtimedespatch translate="label" module="realtimedespatch">
+            <label>OrderFlow</label>
+            <tab>service</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>400</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <hint>
+                    <frontend_model>realtimedespatch/adminhtml_system_config_fieldset_hint</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </hint>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <admin_name translate="label">
+                            <label>Admin Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </admin_name>                            
+                        <admin_email translate="label">
+                            <label>Admin Email (for email alerts)</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_email_address</backend_model>  
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </admin_email>                                             
+                    </fields>
+                </general>     
+                <api_config translate="label">
+                    <label>External API Connection</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <endpoint translate="label">
+                            <label>Endpoint</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </endpoint>                        
+                        <username translate="label">
+                            <label>Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </username>
+                        <password translate="label">
+                            <label>Password</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </password>
+                        <organisation translate="label">
+                            <label>Organisation</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </organisation>                           
+                        <channel translate="label">
+                            <label>Channel</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>required-entry</validate>
+                        </channel>
+                    </fields>
+                </api_config>
+                <product_export>
+                    <label>Product Export</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                       <store_id translate="label">
+                            <label>Store</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>realtimedespatch/adminhtml_system_config_source_store</source_model>                            
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>                               
+                        </store_id>                        
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_productExport_cron</backend_model>                            
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>                               
+                        </cron_expr>
+                        <batch_size translate="label">
+                            <label>Batch Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>  
+                            <validate>validate-digits</validate>                             
+                        </batch_size>                        
+                    </fields>                    
+                </product_export>
+                <order_export>
+                    <label>Order Export</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_orderExport_cron</backend_model>                            
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>                               
+                        </cron_expr>
+                        <batch_size translate="label">
+                            <label>Batch Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>  
+                            <validate>validate-digits</validate>                             
+                        </batch_size>                        
+                    </fields>                    
+                </order_export>
+                <inventory_import>
+                    <label>Inventory Import</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_inventoryImport_cron</backend_model>                            
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>                               
+                        </cron_expr>
+                        <batch_size translate="label">
+                            <label>Batch Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>  
+                            <validate>validate-digits</validate>                             
+                        </batch_size>                          
+                    </fields>                    
+                </inventory_import>                 
+                <shipment_import>
+                    <label>Shipment Import</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>600</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_shipmentImport_cron</backend_model>                            
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>                               
+                        </cron_expr>
+                        <batch_size translate="label">
+                            <label>Batch Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>  
+                            <validate>validate-digits</validate>                             
+                        </batch_size>                          
+                    </fields>                    
+                </shipment_import>
+                <log_cleaning>
+                    <label>Log Cleaning</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>700</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_logCleaning_cron</backend_model>                            
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cron_expr>
+                        <web_log_duration translate="label">
+                            <label>Web Log Duration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>realtimedespatch/adminhtml_system_config_source_log_duration_web</source_model>                          
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </web_log_duration>
+                        <xml_log_duration translate="label">
+                            <label>XML Log Duration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>realtimedespatch/adminhtml_system_config_source_log_duration_xml</source_model>                          
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </xml_log_duration>                                             
+                    </fields>                    
+                </log_cleaning>
+                <admin_info>
+                    <label>Admin Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>800</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>     
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                    </fields>                                   
+                </admin_info>               
+            </groups>
+        </sixbysix_realtimedespatch>
+    </sections>
+</config>

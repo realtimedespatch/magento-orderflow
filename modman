@@ -1,0 +1,5 @@
+app/etc/modules/*                                               app/etc/modules/
+app/code/community/SixBySix/RealTimeDespatch                    app/code/community/SixBySix/RealTimeDespatch
+app/design/adminhtml/default/default/layout/*                   app/design/adminhtml/default/default/layout/
+app/design/adminhtml/default/default/template/realtimedespatch  app/design/adminhtml/default/default/template/realtimedespatch
+skin/adminhtml/default/default/realtimedespatch/css/styles.css  skin/adminhtml/default/default/realtimedespatch/css/styles.css

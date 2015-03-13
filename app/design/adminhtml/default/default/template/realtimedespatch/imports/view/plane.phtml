@@ -1,0 +1,76 @@
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Import Details') ?></h4>
+    </div>
+    <div class="fieldset">
+        <table cellspacing="0" class="form-list">
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Imported') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo Mage::helper('core')->formatDate($this->getImport()->getCreated(), 'full', TRUE); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Type') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getImport()->getType(); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Message ID') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getImport()->getMessageId(); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Entity') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getImport()->getEntity(); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Successes') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getImport()->getSuccesses(); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Duplicates') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getImport()->getDuplicates(); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Failures') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getImport()->getFailures(); ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Import Lines') ?></h4>
+    </div>
+    <div class="fieldset">
+        <?php echo $this->getChildHtml('lines'); ?>
+    </div>
+</div>
+
+<?php echo $this->getChildHtml('xml'); ?>

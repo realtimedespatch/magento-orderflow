@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<config>
+    <menu>
+        <realtimedespatch translate="title" module="realtimedespatch">
+            <title>OrderFlow</title>
+            <sort_order>90</sort_order>
+            <children>
+                <orderexports module="realtimedespatch">
+                    <title>Exported Orders</title>
+                    <action>adminhtml/orderExports</action>
+                </orderexports>
+                <productexports module="realtimedespatch">
+                    <title>Exported Products</title>
+                    <action>adminhtml/productExports</action>
+                </productexports>
+                <inventoryimports module="realtimedespatch">
+                    <title>Imported Inventory</title>
+                    <action>adminhtml/inventoryImports</action>
+                </inventoryimports>
+                <shipmentimports module="realtimedespatch">
+                    <title>Imported Shipments</title>
+                    <action>adminhtml/shipmentImports</action>
+                </shipmentimports>
+                <schedule module="realtimedespatch">
+                    <title>Schedule</title>
+                    <action>adminhtml/processSchedule</action>
+                </schedule>
+            </children>
+        </realtimedespatch>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sixbysix_realtimedespatch translate="title" module="realtimedespatch">
+                                        <title>OrderFlow Configuration</title>
+                                        <sort_order>100</sort_order>
+                                    </sixbysix_realtimedespatch>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

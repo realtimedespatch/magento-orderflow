@@ -1,0 +1,7 @@
+/vendor/
+/nbproject/
+.htaccess
+.idea/*
+var/*
+cache/
+.phpstorm.meta.php
