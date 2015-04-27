@@ -6,6 +6,15 @@ In progress documentation at http://www.sixbysix.co.uk/realtime-despatch-orderfl
 <br />
 <h2>Quick installation instructions:</h2>
 
+There are two options for installing the extension 
+
+<h3>Manual installation:</h3>
+
+- Fetch the latest build from http://www.sixbysix.co.uk/orderflow/orderflow.tar.gz and unzip the files under the `orderflow` directory into your Magento installation.
+
+
+<h3>via Composer:</h3>
+
 - Drop the composer.json into your magento webroot and run `composer install`.
 
 - Ensure that you have developer symlinks enabled in your admin area:
