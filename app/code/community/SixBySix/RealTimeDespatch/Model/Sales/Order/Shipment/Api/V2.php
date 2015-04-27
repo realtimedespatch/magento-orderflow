@@ -40,7 +40,7 @@ class SixBySix_RealTimeDespatch_Model_Sales_Order_Shipment_Api_V2 extends Mage_A
             return 'Error Processing Message '.$messageSeqId;
         }
 
-        return 'Message '.$messageSeqId.' Received';
+	    return 'Success - Message '.$messageSeqId.' Received';
     }
 
     /**
