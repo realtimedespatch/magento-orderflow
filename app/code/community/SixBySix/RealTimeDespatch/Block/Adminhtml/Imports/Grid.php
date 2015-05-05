@@ -98,6 +98,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_Grid extends Mage_Adminh
             'header' => Mage::helper('realtimedespatch')->__('Imported'),
             'align'  =>'left',
             'index'  => 'created',
+            'filter_index' => 'main_table.created',
             'type'   => 'datetime',
             'width'  => '150px',
         ));

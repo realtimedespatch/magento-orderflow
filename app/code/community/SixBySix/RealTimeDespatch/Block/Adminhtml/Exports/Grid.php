@@ -89,6 +89,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Exports_Grid extends Mage_Adminh
             'header' => Mage::helper('realtimedespatch')->__('Exported'),
             'align'  =>'left',
             'index'  => 'created',
+            'filter_index' => 'main_table.created',
             'type'   => 'datetime',
             'width'  => '150px',
         ));
