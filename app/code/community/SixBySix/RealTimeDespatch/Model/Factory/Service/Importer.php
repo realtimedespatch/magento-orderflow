@@ -17,10 +17,10 @@ class SixBySix_RealTimeDespatch_Model_Factory_Service_Importer
     {
         switch ($type) {
             case self::IMPORTER_INVENTORY:
-                return new SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory;
+                return Mage::getModel('realtimedespatch/service_importer_inventory');
             break;
             case self::IMPORTER_SHIPMENT:
-                return new SixBySix_RealTimeDespatch_Model_Service_Importer_Shipment;
+                return Mage::getModel('realtimedespatch/service_importer_shipment');
             break;
             default:
                 throw new Exception('Invalid Importer Type');
