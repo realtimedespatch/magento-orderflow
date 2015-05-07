@@ -75,7 +75,7 @@ class SixBySix_RealTimeDespatch_Model_Inventory_Stock_Item_Api_V2 extends Mage_A
         $requestLine = Mage::getModel('realtimedespatch/request_line');
         $requestLine->setParentRequest($request);
         $requestLine->setType(SixBySix_RealTimeDespatch_Model_Request_Type::REQUEST_TYPE_INVENTORY);
-        $requestLine->setSequenceId($request->getMessageId());
+        $requestLine->setSequenceId($sequenceId);
         $requestLine->setBody($body);
 
         return $requestLine;
