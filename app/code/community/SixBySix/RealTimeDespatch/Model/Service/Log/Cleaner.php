@@ -31,8 +31,8 @@ class SixBySix_RealTimeDespatch_Model_Service_Log_Cleaner
         $write    = $resource->getConnection('core_write');
         $interval = Mage::helper('realtimedespatch/log_cleaning')->getWebLogDuration();
 
-        $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/export')." WHERE DATEDIFF( NOW( ) , created ) > ".mysql_escape_string($interval));
-        $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/import')." WHERE DATEDIFF( NOW( ) , created ) > ".mysql_escape_string($interval));
+        $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/export')." WHERE DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
+        $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/import')." WHERE DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
     }
 
     /**
@@ -46,7 +46,7 @@ class SixBySix_RealTimeDespatch_Model_Service_Log_Cleaner
         $write    = $resource->getConnection('core_write');
         $interval = Mage::helper('realtimedespatch/log_cleaning')->getXmlLogDuration();
 
-        $write->query("UPDATE ".$resource->getTableName('realtimedespatch/export')." SET request_body = NULL, response_body = NULL WHERE DATEDIFF( NOW( ) , created ) > ".mysql_escape_string($interval));
-        $write->query("UPDATE ".$resource->getTableName('realtimedespatch/import')." SET request_body = NULL, response_body = NULL WHERE DATEDIFF( NOW( ) , created ) > ".mysql_escape_string($interval));
+        $write->query("UPDATE ".$resource->getTableName('realtimedespatch/export')." SET request_body = NULL, response_body = NULL WHERE DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
+        $write->query("UPDATE ".$resource->getTableName('realtimedespatch/import')." SET request_body = NULL, response_body = NULL WHERE DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
     }
 }
