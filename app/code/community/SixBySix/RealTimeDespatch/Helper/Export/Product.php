@@ -50,12 +50,29 @@ class SixBySix_RealTimeDespatch_Helper_Export_Product extends Mage_Core_Helper_A
                 ->getCollection()
                 ->addAttributeToSelect('*')
                 ->addAttributeToFilter('type_id', 'simple')
-                ->addAttributeToFilter('export_failures', array('lt' => 4))
                 ->addAttributeToFilter(
                     array(
-                        array('attribute'=> 'is_exported','eq' => 0),
-                        array('attribute'=> 'exported_at','lt' => new Zend_Db_Expr('updated_at')),
-                    )
+                        array('attribute' => 'export_failures', 'null' => true),
+                        array('attribute'=> 'export_failures','lt' => 4)
+                    ),
+                '',
+                'left'
+                )
+                ->addAttributeToFilter(
+                    array(
+                        array('attribute' => 'is_exported', 'null' => true),
+                        array('attribute'=> 'is_exported','eq' => 0)
+                    ),
+                '',
+                'left'
+                )
+                ->addAttributeToFilter(
+                    array(
+                        array('attribute' => 'exported_at', 'null' => true),
+                        array('attribute'=> 'exported_at','lt' => new Zend_Db_Expr('updated_at'))
+                    ),
+                '',
+                'left'
                 )
                 ->addStoreFilter($this->getStoreId())
                 ->setPageSize($this->getBatchLimit())
