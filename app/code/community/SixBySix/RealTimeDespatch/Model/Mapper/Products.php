@@ -45,10 +45,10 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Products extends Mage_Core_Helper_A
             try {
 	            $attribute = $product->getResource()->getAttribute($magentoKey);
 	            if($attribute != false && in_array($attribute->getFrontendInput(), $attributeTypes)) {
-		            $encodedProduct->setParam($rtdKey, $product->getAttributeText($magentoKey));
+			$encodedProduct->setParam($rtdKey, $product->getAttributeText($magentoKey));
 	            }
 	            else {
-		            $encodedProduct->setParam($rtdKey, $product->{'get'.$magentoKey}());
+			$encodedProduct->setParam($rtdKey, $product->{'get'.$magentoKey}());
 	            }
             }
             catch (Exception $ex) {
