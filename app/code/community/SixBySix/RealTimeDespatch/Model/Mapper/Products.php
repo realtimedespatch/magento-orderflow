@@ -39,10 +39,17 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Products extends Mage_Core_Helper_A
     {
         $encodedProduct = new RTDProduct;
         $customMapping  = Mage::getConfig()->getNode('rtd_mappings/product/export');
+	    $attributeTypes = array('multiselect', 'dropdown');
 
         foreach ($customMapping->asArray() as $magentoKey => $rtdKey) {
             try {
-                $encodedProduct->setParam($rtdKey, $product->{'get'.$magentoKey}());
+	            $attribute = $product->getResource()->getAttribute($magentoKey);
+	            if($attribute != false && in_array($attribute->getFrontendInput(), $attributeTypes)) {
+		            $encodedProduct->setParam($rtdKey, $product->getAttributeText($magentoKey));
+	            }
+	            else {
+		            $encodedProduct->setParam($rtdKey, $product->{'get'.$magentoKey}());
+	            }
             }
             catch (Exception $ex) {
                 Mage::log($ex->getMessage(), null, 'realtimedespatch.log');
@@ -50,7 +57,6 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Products extends Mage_Core_Helper_A
         }
 
         $this->_swapPlaceholderWithParentImage($product, $encodedProduct);
-
         return $encodedProduct;
     }
 
