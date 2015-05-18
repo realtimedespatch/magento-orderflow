@@ -21,7 +21,7 @@
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "*",
-        "sixbysix/realtime-despatch": "dev-develop"
+        "sixbysix/realtime-despatch": "dev-master"
     },
     "minimum-stability": "dev"
 }
