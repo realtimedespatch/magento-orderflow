@@ -164,20 +164,20 @@
         <events>
             <rtd_export_success>
                 <observers>
-                    <rtd_export_observer>
+                    <rtd_export_success_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_export</class>
                         <method>handleExportSuccess</method>
-                    </rtd_export_observer>
+                    </rtd_export_success_observer>
                 </observers>
             </rtd_export_success>
             <rtd_import_success>
                 <observers>
-                    <rtd_export_observer>
+                    <rtd_import_success_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_import</class>
                         <method>handleImportSuccess</method>
-                    </rtd_export_observer>
+                    </rtd_import_success_observer>
                 </observers>
             </rtd_import_success>
             <rtd_exception>
@@ -191,38 +191,38 @@
             </rtd_exception>
             <realtimedespatch_export_save_after>
                 <observers>
-                    <rtd_export_save_observer>
+                    <rtd_export_save_after_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_export</class>
                         <method>handleExportSave</method>
-                    </rtd_export_save_observer>
+                    </rtd_export_save_after_observer>
                 </observers>
             </realtimedespatch_export_save_after>
             <realtimedespatch_import_save_after>
                 <observers>
-                    <rtd_export_save_observer>
+                    <rtd_import_save_after_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_import</class>
                         <method>handleImportSave</method>
-                    </rtd_export_save_observer>
+                    </rtd_import_save_after_observer>
                 </observers>
             </realtimedespatch_import_save_after>
             <model_save_after>
                 <observers>
-                    <cron_schedule_observer>
+                    <model_save_after_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_cron_schedule</class>
                         <method>onCronScheduleSave</method>
-                    </cron_schedule_observer>
+                    </model_save_after_observer>
                 </observers>
             </model_save_after>
             <model_delete_commit_after>
                 <observers>
-                    <cron_schedule_observer>
+                    <model_delete_commit_after_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_cron_schedule</class>
                         <method>onCronScheduleDelete</method>
-                    </cron_schedule_observer>
+                    </model_delete_commit_after_observer>
                 </observers>
             </model_delete_commit_after>
         </events>
