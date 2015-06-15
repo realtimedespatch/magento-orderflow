@@ -43,6 +43,16 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
     }
 
     /**
+     * Checks whether negative inventory quantities are enabled.
+     *
+     * @return boolean
+     */
+    public function isNegativeQtyEnabled()
+    {
+        return (boolean) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/negative_qtys_enabled');
+    }
+
+    /**
      * Disables the inventory import cron process.
      *
      * @return void
