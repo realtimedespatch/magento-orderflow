@@ -12,7 +12,7 @@ class SixBySix_RealTimeDespatch_Helper_Log_Cleaning extends Mage_Core_Helper_Abs
      */
     public function isEnabled()
     {
-        return (boolean) Mage::helper('realtimedespatch')->isEnabled();
+        return Mage::helper('realtimedespatch')->isEnabled();
     }
 
     /**

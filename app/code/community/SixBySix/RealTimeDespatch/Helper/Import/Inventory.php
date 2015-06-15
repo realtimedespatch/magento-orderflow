@@ -16,7 +16,7 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
             return false;
         }
 
-        return (boolean) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/is_enabled');
+        return Mage::getStoreConfigFlag('sixbysix_realtimedespatch/inventory_import/is_enabled');
     }
 
     /**

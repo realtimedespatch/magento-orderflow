@@ -12,7 +12,7 @@ class SixBySix_RealTimeDespatch_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function isEnabled()
     {
-        return (boolean) Mage::getStoreConfig('sixbysix_realtimedespatch/general/is_enabled');
+        return Mage::getStoreConfigFlag('sixbysix_realtimedespatch/general/is_enabled');
     }
 
     /**
