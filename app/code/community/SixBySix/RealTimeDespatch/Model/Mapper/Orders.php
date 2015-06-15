@@ -130,10 +130,6 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
                 continue;
             }
 
-            if ($orderItem->getParentItemId()) {
-                continue;
-            }
-
             $encodedOrder->addLine($this->_encodeOrderItem($mapping, $orderItem));
         }
     }
