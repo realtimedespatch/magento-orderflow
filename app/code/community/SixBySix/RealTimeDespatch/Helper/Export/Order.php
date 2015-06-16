@@ -16,7 +16,7 @@ class SixBySix_RealTimeDespatch_Helper_Export_Order extends Mage_Core_Helper_Abs
             return false;
         }
 
-        return (boolean) Mage::getStoreConfig('sixbysix_realtimedespatch/order_export/is_enabled');
+        return Mage::getStoreConfigFlag('sixbysix_realtimedespatch/order_export/is_enabled');
     }
 
     /**
