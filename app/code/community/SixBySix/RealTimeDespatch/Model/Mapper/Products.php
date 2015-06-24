@@ -93,7 +93,9 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Products extends Mage_Core_Helper_A
 
             if ($parentId != null) {
                 $parentProduct = Mage::getModel('catalog/product')->load($parentId);
-                $rtdProduct->setParam('imageReference', $parentProduct->getSmallImageUrl());
+	            if($parentProduct->getSmallImage() != "no_selection") {
+		            $rtdProduct->setParam('imageReference', $parentProduct->getSmallImageUrl());
+	            }
             }
         }
     }
