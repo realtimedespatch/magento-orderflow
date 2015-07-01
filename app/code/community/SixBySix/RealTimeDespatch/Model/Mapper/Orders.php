@@ -126,11 +126,7 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
 
         foreach ($magentoOrder->getAllItems() as $orderItem) {
 
-            /*if ( ! $orderItem->isSimple()) {
-                continue;
-            }*/
-
-            if ($orderItem->getParentItemId()) {
+            if ( ! $orderItem->isSimple()) {
                 continue;
             }
 
