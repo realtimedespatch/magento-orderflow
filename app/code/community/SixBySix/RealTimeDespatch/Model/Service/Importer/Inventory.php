@@ -90,6 +90,12 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
                 );
             }
         }
+        
+        // Only fire pre-instantiated objects to reduce overhead.
+        $productArray = array('product_id' => $productId,
+	                          'stock' => $stock);
+
+	    Mage::dispatchEvent('catalog_product_stock_save_after', $productArray);
 
         $report->setLines($reportLines);
 
