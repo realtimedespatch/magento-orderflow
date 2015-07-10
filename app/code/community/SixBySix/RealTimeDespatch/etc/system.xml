@@ -347,7 +347,47 @@
                             <show_in_store>0</show_in_store>
                         </is_enabled>
                     </fields>                                   
-                </admin_info>               
+                </admin_info>
+                <error_notification>
+                    <label>Error Notification</label>
+                    <frontend_type>text</frontend_type>
+                    <comment>This feature requires the server level cronjob to execute this, please see instructions and pass these to a system administrator for implementation.</comment>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Order Export Validation</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Enable this to recieve emails when the order export stalls.</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <exceedsize>
+                            <label>Email when..</label>
+                            <frontend_type>number</frontend_type>
+                            <comment>or more exports have stacked up without being sent down to Orderflow.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </exceedsize>
+                        <list_users>
+                            <label>Users to email</label>
+                            <comment>Add a comma delimited list of users to email in the event the cron stops working, admin contact will be automatically included.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </list_users>
+                    </fields>
+                </error_notification>
             </groups>
         </sixbysix_realtimedespatch>
     </sections>
