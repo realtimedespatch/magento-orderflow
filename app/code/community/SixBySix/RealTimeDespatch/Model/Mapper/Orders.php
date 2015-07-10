@@ -126,13 +126,19 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
 
         foreach ($magentoOrder->getAllItems() as $orderItem) {
 
-            if ( ! $orderItem->isSimple()) {
-                continue;
+            if ($orderItem->getParentItemId()) {
+                $parent_product_type = Mage::getModel('sales/order_item')->load($orderItem->getParentItemId())->getProductType();
+                if ($parent_product_type == Mage_Catalog_Model_Product_Type::TYPE_BUNDLE && $orderItem->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE) {
+                    $encodedOrder->addLine($this->_encodeOrderItem($mapping, $orderItem));
+                }
             }
-
-            $encodedOrder->addLine($this->_encodeOrderItem($mapping, $orderItem));
+            elseif ($orderItem->getProductType() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE) {
+                $encodedOrder->addLine($this->_encodeOrderItem($mapping, $orderItem));
+            }
         }
     }
+
+
 
     /**
      * Encodes an individual order item.
