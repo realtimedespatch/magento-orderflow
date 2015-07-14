@@ -166,7 +166,7 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
     protected function _encodeShipment(RTDOrder $encodedOrder, Mage_Sales_Model_Order $magentoOrder)
     {
         $shipment      = new RTDShipment;
-        $customMapping = Mage::getConfig()->getNode('rtd_mappings/billing_address');
+        $customMapping = Mage::getConfig()->getNode('rtd_mappings/order_shipment');
 
         foreach ($customMapping->asArray() as $magentoKey => $rtdKey) {
             $shipment->setParam($rtdKey, $magentoOrder->{'get'.$magentoKey}());
