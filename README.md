@@ -37,4 +37,4 @@ Magento EE 1.11,1.12,1.13,1.14</p>
 
 <h3>Author</h3>
 
-<p>The author/maintainer of the extension up to its current release (1.0.0.25) is <a href="http://www.sixbysix.co.uk">Six By Six</a></p>
+<p>The author/maintainer of the extension up to its current release (1.0.0.26) is <a href="http://www.sixbysix.co.uk">Six By Six</a></p>
