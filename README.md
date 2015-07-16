@@ -6,7 +6,7 @@ In progress documentation at http://www.sixbysix.co.uk/realtime-despatch-orderfl
 <br />
 <h2>Installation instructions:</h2>
 
-There are two options for installing the extension 
+There are two options for installing the extension. Note that the two approaches cannot be used interchangeably, if Composer is used to install the module all subesquent upgrades should also use Composer.
 
 <h3>Manual installation:</h3>
 
