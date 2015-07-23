@@ -29,6 +29,10 @@ Note that the two approaches cannot be used interchangeably, if Composer is used
 <p>Compatible with Magento CE 1.6, 1.6.1, 1.6.2, 1.7,1.8,1.8.1,1.9,1.9.1 and 
 Magento EE 1.11,1.12,1.13,1.14</p>
 
+<h3>Support</h3>
+
+The extension is provided 'as is' and is provided to Magento software houses and technical specialists who may wish to use it in it's unmodified form or as a starting point for their own development. Support is available from <a href="http://www.sixbysix.co.uk/support">Six By Six</a></p>.
+
 <h3>License</h3>
 
 <p>The extension is released under the Open Software License v3.0 (OSL-3.0)</p>
