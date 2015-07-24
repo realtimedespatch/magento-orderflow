@@ -31,7 +31,7 @@ Magento EE 1.11,1.12,1.13,1.14</p>
 
 <h3>Support</h3>
 
-The extension is provided 'as is' and is provided to Magento software houses and technical specialists who may wish to use it in it's unmodified form or as a starting point for their own development. Support is available from <a href="http://www.sixbysix.co.uk/support">Six By Six</a>.</p>
+The extension is provided 'as is' and is provided to Magento software houses and technical specialists who may wish to use it in its unmodified form or as a starting point for their own development. Support is available from <a href="http://www.sixbysix.co.uk/support">Six By Six</a>.</p>
 
 <h3>License</h3>
 
