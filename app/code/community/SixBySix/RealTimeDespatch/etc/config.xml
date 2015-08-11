@@ -298,7 +298,7 @@
             <export>
                 <Sku>externalReference</Sku>
                 <Name>description</Name>
-                <TypeId>type</TypeId>
+                <TypeId>magentoType</TypeId>
                 <SmallImageUrl>imageReference</SmallImageUrl>
                 <PhysicalStorageTypes>physicalStorageTypes</PhysicalStorageTypes>
                 <CategoryName>category</CategoryName>
