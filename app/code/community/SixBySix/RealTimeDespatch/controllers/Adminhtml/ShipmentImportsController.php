@@ -11,6 +11,14 @@ class SixBySix_RealTimeDespatch_Adminhtml_ShipmentImportsController extends Mage
     protected $_publicActions = array('view');
 
     /**
+     * {@inheritdoc}
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('realtimedespatch/shipmentimports');
+    }
+
+    /**
      * Displays a list of all imports.
      *
      * @return void
