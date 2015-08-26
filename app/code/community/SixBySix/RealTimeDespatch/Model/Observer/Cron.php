@@ -88,7 +88,9 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron
         $factory = Mage::getModel('realtimedespatch/factory_service_importer');
         $service = $factory->retrieve(SixBySix_RealTimeDespatch_Model_Factory_Service_Importer::IMPORTER_INVENTORY);
 
-        $service->import($requests);
+        foreach ($requests as $request) {
+            $service->import($request->getLines());
+        }
     }
 
     /**

@@ -73,4 +73,17 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
 
         return gzinflate(parent::getResponseBody());
     }
+
+    /**
+     * Returns the line attached to the requests.
+     *
+     * @return array
+     */
+    public function getLines()
+    {
+        return Mage::getResourceModel('realtimedespatch/request_line_collection')
+                    ->addFieldToFilter('request_id', array('eq' => $this->getId()))
+                    ->addFieldToFilter('processed', array('null' => true))
+                    ->setOrder('sequence_id', 'ASC');
+    }
 }
