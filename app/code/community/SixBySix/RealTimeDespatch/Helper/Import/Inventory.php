@@ -36,7 +36,7 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
      */
     public function getImportableRequests()
     {
-        return Mage::getResourceModel('realtimedespatch/request_line_collection')->getNextRequestLines(
+        return Mage::getResourceModel('realtimedespatch/request_collection')->getNextRequests(
             SixBySix_RealTimeDespatch_Model_Request_Type::REQUEST_TYPE_INVENTORY,
             $this->getBatchLimit()
         );
