@@ -44,6 +44,32 @@
                             </config>
                         </children>
                     </system>
+                    <realtimedespatch translate="title" module="realtimedespatch">
+                        <title>OrderFlow</title>
+                        <sort_order>90</sort_order>
+                        <children>
+                            <orderexports translate="title" module="realtimedespatch">
+                                <title>Order Exports</title>
+                                <sort_order>100</sort_order>
+                            </orderexports>
+                            <productexports translate="title" module="realtimedespatch">
+                                <title>Product Exports</title>
+                                <sort_order>200</sort_order>
+                            </productexports>
+                            <inventoryimports module="realtimedespatch">
+                                <title>Inventory Imports</title>
+                                <sort_order>300</sort_order>
+                            </inventoryimports>
+                            <shipmentimports module="realtimedespatch">
+                                <title>Shipment Imports</title>
+                                <sort_order>400</sort_order>
+                            </shipmentimports>
+                            <schedule module="realtimedespatch">
+                                <title>Schedule</title>
+                                <sort_order>500</sort_order>
+                            </schedule>
+                        </children>
+                    </realtimedespatch>
                 </children>
             </admin>
         </resources>
