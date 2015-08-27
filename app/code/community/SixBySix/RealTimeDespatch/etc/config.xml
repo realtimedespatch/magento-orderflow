@@ -266,31 +266,31 @@
     </default>
     <crontab>
         <jobs>
-            <product_export>
+            <orderflow_product_export>
                 <run>
                     <model>realtimedespatch/observer_cron::executeProductExport</model>
                 </run>
-            </product_export>
-            <order_export>
+            </orderflow_product_export>
+            <orderflow_order_export>
                 <run>
                     <model>realtimedespatch/observer_cron::executeOrderExport</model>
                 </run>
-            </order_export>
-            <shipment_import>
+            </orderflow_order_export>
+            <orderflow_shipment_import>
                 <run>
                     <model>realtimedespatch/observer_cron::executeShipmentImport</model>
                 </run>
-            </shipment_import>
-            <inventory_import>
+            </orderflow_shipment_import>
+            <orderflow_inventory_import>
                 <run>
                     <model>realtimedespatch/observer_cron::executeInventoryImport</model>
                 </run>
-            </inventory_import>
-            <log_cleaning>
+            </orderflow_inventory_import>
+            <orderflow_log_cleaning>
                 <run>
                     <model>realtimedespatch/observer_cron::executeLogCleaning</model>
                 </run>
-            </log_cleaning>
+            </orderflow_log_cleaning>
         </jobs>
     </crontab>
     <rtd_mappings>

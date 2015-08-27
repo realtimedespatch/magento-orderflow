@@ -61,7 +61,7 @@ abstract class SixBySix_RealTimeDespatch_Model_Adminhtml_System_Config_Backend_C
      */
     protected function _getConfigPath()
     {
-        return 'crontab/jobs/'.$this->_getCronJobName().'/schedule/cron_expr';
+        return 'crontab/jobs/orderflow_'.$this->_getCronJobName().'/schedule/cron_expr';
     }
 
     /**
