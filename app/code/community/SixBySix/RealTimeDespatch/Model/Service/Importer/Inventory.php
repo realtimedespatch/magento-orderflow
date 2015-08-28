@@ -116,7 +116,7 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
             $sku
         );
 
-        if ($importLine->getSequenceId() > $sequenceId) {
+        if ($importLine && $importLine->getSequenceId() > $sequenceId) {
             return $importLine;
         }
     }
