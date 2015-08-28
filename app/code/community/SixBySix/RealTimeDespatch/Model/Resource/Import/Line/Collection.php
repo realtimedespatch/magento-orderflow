@@ -14,4 +14,15 @@ class SixBySix_RealTimeDespatch_Model_Resource_Import_Line_Collection extends Ma
     {
         $this->_init('realtimedespatch/import_line');
     }
+
+    public static function getLatestImportLineByReference($type, $reference)
+    {
+        return Mage::getResourceModel('realtimedespatch/import_line_collection')
+            ->addFieldToFilter('reference', $reference)
+            ->addFieldToFilter('processed', array('notnull' => true))
+            ->addOrder('sequence_id', 'DESC')
+            ->setPageSize(1)
+            ->setCurPage(1)
+            ->getFirstItem();
+    }
 }
