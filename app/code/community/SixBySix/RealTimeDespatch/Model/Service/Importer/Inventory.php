@@ -44,7 +44,8 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
                     $requestLine->sequence_id,
                     $sku,
                     sprintf(
-                        'Product quantity update discarded as already superseded by %d',
+                        'Product quantity update to %d discarded as already superseded by inventory record %d',
+                        (int) $body->value,
                         $importLine->getSequenceId()
                     )
                 );
