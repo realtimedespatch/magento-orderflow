@@ -21,6 +21,10 @@
                     <title>Imported Shipments</title>
                     <action>adminhtml/shipmentImports</action>
                 </shipmentimports>
+                <requests module="realtimedespatch">
+                    <title>Requests</title>
+                    <action>adminhtml/requests</action>
+                </requests>
                 <schedule module="realtimedespatch">
                     <title>Schedule</title>
                     <action>adminhtml/processSchedule</action>
@@ -64,6 +68,10 @@
                                 <title>Shipment Imports</title>
                                 <sort_order>400</sort_order>
                             </shipmentimports>
+                            <requests module="realtimedespatch">
+                                <title>Requests</title>
+                                <sort_order>500</sort_order>
+                            </requests>
                             <schedule module="realtimedespatch">
                                 <title>Schedule</title>
                                 <sort_order>500</sort_order>
