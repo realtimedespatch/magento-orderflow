@@ -10,11 +10,11 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Import_Id extends Mage_
      */
     public function render(Varien_Object $row)
     {
-        if ( ! $row->getProcessed()) {
+        if ( ! $row->getData('processed')) {
             return 'Pending';
         }
 
-        $import = Mage::getModel('realtimedespatch/import')->load($row->getMessageId(), 'message_id');
+        $import = Mage::getModel('realtimedespatch/import')->load($row->getData('message_id'), 'message_id');
 
         if ( ! $import->getId()) {
             return 'Pending';
