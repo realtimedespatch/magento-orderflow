@@ -46,13 +46,14 @@ class SixBySix_RealTimeDespatch_Model_Observer_Product_Grid
         $block->addColumnAfter(
             'is_exported',
             array (
-                'header'   => Mage::helper ('realtimedespatch')->__('Exported To OrderFlow'),
-                'width'    => '80px',
-                'index'    => 'is_exported',
-                'type'     => 'options',
-                'options'  => array(1 => 'True', 0 => 'False'),
-                'renderer' => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Exported(),
-                'align'    => 'center'
+                'header'       => Mage::helper ('realtimedespatch')->__('Exported To OrderFlow'),
+                'width'        => '80px',
+                'index'        => 'is_exported',
+                'type'         => 'options',
+                'options'      => array(1 => 'True', 0 => 'False'),
+                'renderer'     => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Exported(),
+                'align'        => 'center',
+                'filter_index' => 'main_table.is_exported'
             ),
             'status'
         );
