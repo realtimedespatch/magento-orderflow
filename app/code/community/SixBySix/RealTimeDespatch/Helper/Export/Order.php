@@ -68,6 +68,6 @@ class SixBySix_RealTimeDespatch_Helper_Export_Order extends Mage_Core_Helper_Abs
     {
         Mage::getSingleton('core/resource')
             ->getConnection('core_write')
-            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'order_export' AND status = 'pending'");
+            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'orderflow_order_export' AND status = 'pending'");
     }
 }
