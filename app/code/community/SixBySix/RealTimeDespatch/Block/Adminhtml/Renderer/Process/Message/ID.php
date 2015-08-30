@@ -18,7 +18,6 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Process_Message_ID exte
         }
 
         if ( ! $id & $row->getType() == 'import') {
-            $factory = Mage::getModel('realtimedespatch/factory_service_importer');
             $request = Mage::getResourceModel('realtimedespatch/request_collection')->getNextProcessableRequestWithType($row->getEntity());
             $id = $request->getMessageId();
         }
