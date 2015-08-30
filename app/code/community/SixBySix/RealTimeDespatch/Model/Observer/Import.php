@@ -162,9 +162,11 @@ class SixBySix_RealTimeDespatch_Model_Observer_Import
      */
     protected function _setAdminFailureNotification($import)
     {
-        $url   = Mage::helper("adminhtml")->getUrl("adminhtml/".$import->getUrlAction()."/view/",array("id" => $import->getId()));
-        $inbox = Mage::getModel('adminnotification/inbox');
+        if ( ! $import->getAdminUrl()) {
+            return;
+        }
 
+        $inbox = Mage::getModel('adminnotification/inbox');
         $inbox->parse(
             array(
                 array(
@@ -172,7 +174,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Import
                     'date_added'  => date('Y-m-d H:i:s'),
                     'title'       => 'A recent Realtime Despatch OrderFlow sync reported problems.',
                     'description' => 'Please check the corresponding import for details',
-                    'url'         => $url,
+                    'url'         => $import->getAdminUrl(),
                     'internal'    => true
                 )
             )
