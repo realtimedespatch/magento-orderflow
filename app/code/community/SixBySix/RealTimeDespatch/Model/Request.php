@@ -98,8 +98,17 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
     {
         return Mage::getResourceModel('realtimedespatch/request_line_collection')
                     ->addFieldToFilter('request_id', array('eq' => $this->getId()))
-                    ->addFieldToFilter('processed', array('null' => true))
                     ->setOrder('sequence_id', 'ASC');
+    }
+
+    /**
+     * Checks whether the request can be processed.
+     *
+     * @return mixed
+     */
+    public function canProcess()
+    {
+        return ! $this->getProcessed();
     }
 
     /**

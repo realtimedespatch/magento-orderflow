@@ -33,10 +33,35 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_View extends Mage_Admin
      */
     protected function _toHtml()
     {
+        $this->_setupButtons();
+
         $this->getChild('plane')
             ->setOrderflowRequest($this->getOrderflowRequest())
             ->setChild('lines', $this->getLayout()->createBlock('realtimedespatch/adminhtml_requests_lines_grid'));
 
         return parent::_toHtml();
+    }
+
+    /**
+     * Sets up the admin buttons.
+     *
+     * @return void
+     */
+    protected function _setupButtons()
+    {
+        if ( ! $this->getOrderflowRequest()->canProcess()) {
+            return;
+        }
+
+        $this->addButton(
+            'process_request',
+            array(
+                'label'     => Mage::helper('realtimedespatch')->__('Process Request'),
+                'onclick'   => "confirmSetLocation('Are you sure you wish to process this request?', '{$this->getUrl('*/*/process', array('id' => $this->getOrderflowRequest()->getId()))}')",
+                'class'     => 'go'
+            ),
+            0,
+            -1
+        );
     }
 }

@@ -47,4 +47,43 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
         $this->_setActiveMenu('realtimedespatch/requests');
         $this->renderLayout();
     }
+
+    /**
+     * Processes a single request.
+     *
+     * @return void
+     */
+    public function processAction()
+    {
+        $id      = $this->getRequest()->getParam('id');
+        $request = Mage::getModel('realtimedespatch/request')->load($id);
+
+        if ( ! $request->getId()) {
+            $this->_redirect('*/*/');
+        }
+
+        if ( ! $request->canProcess()) {
+            Mage::getSingleton('core/session')->addError(
+                'This request has already been processed.'
+            );
+
+            $this->_redirect('*/*/view', array('id' => $id));
+        }
+
+        try {
+            $factory = Mage::getModel('realtimedespatch/factory_service_importer');
+            $service = $factory->retrieve($request->getType());
+            $service->import($request->getLines());
+
+            Mage::getSingleton('core/session')->addSuccess(
+                'The request has been successfully processed.'
+            );
+        } catch (Exception $ex) {
+            Mage::getSingleton('core/session')->addError(
+                'Error processing request: '.$ex->getMessage()
+            );
+        }
+
+        $this->_redirect('*/*/view', array('id' => $id));
+    }
 }
