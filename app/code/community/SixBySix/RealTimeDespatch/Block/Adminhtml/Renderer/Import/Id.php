@@ -14,10 +14,10 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Import_Id extends Mage_
             return 'Pending';
         }
 
-        $import = Mage::getModel('realtimedespatch/import')->load($row->getData('message_id'), 'message_id');
+        $import = Mage::getModel('realtimedespatch/import')->load($row->getData('request_id'), 'request_id');
 
         if ( ! $import->getId()) {
-            return 'Pending';
+            return 'Not Available';
         }
 
         return '<a href="'.$import->getAdminUrl().'" title="View Import">'.$import->getId().'</a>';

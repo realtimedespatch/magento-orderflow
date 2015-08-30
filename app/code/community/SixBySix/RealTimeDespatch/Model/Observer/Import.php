@@ -56,6 +56,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Import
         $import->setDuplicates($report->getDuplicates());
         $import->setFailures($report->getFailures());
         $import->setRequestBody($report->getRequestBody());
+        $import->setRequestId($report->getRequestId());
 
         return $import;
     }

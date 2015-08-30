@@ -75,7 +75,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
         try {
             $factory = Mage::getModel('realtimedespatch/factory_service_importer');
             $service = $factory->retrieve($request->getType());
-            $service->import($request->getLines());
+            $service->import($request);
 
             Mage::getSingleton('core/session')->addSuccess(
                 'The request has been successfully processed.'
@@ -111,7 +111,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
         try {
             foreach ($requests as $request) {
                 $service = $factory->retrieve($request->getType());
-                $service->import($request->getLines());
+                $service->import($request);
             }
 
             Mage::getSingleton('core/session')->addSuccess(

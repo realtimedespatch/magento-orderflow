@@ -135,8 +135,7 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
     public function getImport()
     {
         return Mage::getResourceModel('realtimedespatch/import_collection')
-                    ->addFieldToFilter('message_id', array('eq' => $this->getMessageId()))
-                    ->addFieldToFilter('entity', array('eq' => $this->getType()))
+                    ->addFieldToFilter('request_id', array('eq' => $this->getId()))
                     ->setPageSize(1)
                     ->setCurPage(1)
                     ->getFirstItem();
