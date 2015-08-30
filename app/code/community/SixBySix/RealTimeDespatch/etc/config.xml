@@ -148,6 +148,7 @@
                     <catalog_product_grid>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
                     <adminhtml_exports_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Exports_View_Plane</adminhtml_exports_view_view_plane>
                     <adminhtml_imports_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_View_Plane</adminhtml_imports_view_view_plane>
+                    <adminhtml_requests_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_View_Plane</adminhtml_requests_view_view_plane>
                     <sales_order_grid>SixBySix_RealTimeDespatch_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
                     <catalog_product_edit_tab_inventory>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Edit_Tab_Inventory</catalog_product_edit_tab_inventory>
                     <catalog_product_edit_tab_attributes>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes</catalog_product_edit_tab_attributes>

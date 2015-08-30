@@ -45,7 +45,22 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
             return 'Logs Cleaned';
         }
 
-        return gzinflate(parent::getRequestBody());
+        $xml = '';
+
+        try
+        {
+            $dom = new \DOMDocument;
+            $dom->preserveWhiteSpace = false;
+            $dom->loadXML(gzinflate(parent::getRequestBody()));
+            $dom->formatOutput = true;
+            $xml = $dom->saveXml();
+        }
+        catch (\Exception $ex)
+        {
+            $xml = 'Request Unavailable';
+        }
+
+        return $xml;
     }
 
     /**
