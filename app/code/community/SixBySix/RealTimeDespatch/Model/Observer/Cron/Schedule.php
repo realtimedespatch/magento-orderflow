@@ -11,10 +11,10 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron_Schedule
      * @var array
      */
     protected $_processWhitelist = array(
-        'shipment_import',
-        'inventory_import',
-        'order_export',
-        'product_export',
+        'orderflow_shipment_import',
+        'orderflow_inventory_import',
+        'orderflow_order_export',
+        'orderflow_product_export',
     );
 
     /**
@@ -66,8 +66,8 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron_Schedule
             ->setStatus($schedule->getStatus())
             ->setScheduled($schedule->getScheduledAt())
             ->setExecuted($schedule->getExecutedAt())
-            ->setType($parts[1])
-            ->setEntity($parts[0]);
+            ->setType($parts[2])
+            ->setEntity($parts[1]);
 
         if ($schedule->getStatus() == Mage_Cron_Model_Schedule::STATUS_MISSED) {
             $schedule->setExecuted(date('Y-m-d H:i:s'));

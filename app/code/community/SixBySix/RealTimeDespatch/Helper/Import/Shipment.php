@@ -67,6 +67,6 @@ class SixBySix_RealTimeDespatch_Helper_Import_Shipment extends Mage_Core_Helper_
     {
         Mage::getSingleton('core/resource')
             ->getConnection('core_write')
-            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'shipment_import' AND status = 'pending'");
+            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'orderflow_shipment_import' AND status = 'pending'");
     }
 }
