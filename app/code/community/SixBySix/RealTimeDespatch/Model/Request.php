@@ -101,4 +101,20 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
                     ->addFieldToFilter('processed', array('null' => true))
                     ->setOrder('sequence_id', 'ASC');
     }
+
+    /**
+     * Returns the processed timestamp.
+     *
+     * @return mixed
+     */
+    public function getProcessed()
+    {
+        return Mage::getResourceModel('realtimedespatch/request_line_collection')
+                    ->addFieldToFilter('request_id', array('eq' => $this->getId()))
+                    ->setOrder('processed', 'ASC')
+                    ->setPageSize(1)
+                    ->setCurPage(1)
+                    ->getFirstItem()
+                    ->getProcessed();
+    }
 }

@@ -6,10 +6,10 @@
         <table cellspacing="0" class="form-list">
             <tr>
                 <td class="label">
-                    <label><b><?php echo __('Received') ?></b></label>
+                    <label><b><?php echo __('OrderFlow ID') ?></b></label>
                 </td>
                 <td class="value">
-                    <?php echo Mage::helper('core')->formatDate($this->getOrderflowRequest()->getCreated(), 'full', TRUE); ?>
+                    <?php echo $this->getOrderflowRequest()->getMessageId(); ?>
                 </td>
             </tr>
             <tr>
@@ -22,10 +22,18 @@
             </tr>
             <tr>
                 <td class="label">
-                    <label><b><?php echo __('Message ID') ?></b></label>
+                    <label><b><?php echo __('Received') ?></b></label>
                 </td>
                 <td class="value">
-                    <?php echo $this->getOrderflowRequest()->getMessageId(); ?>
+                    <?php echo Mage::helper('core')->formatDate($this->getOrderflowRequest()->getCreated(), 'full', TRUE); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Processed') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getOrderflowRequest()->getProcessed() ? Mage::helper('core')->formatDate($this->getOrderflowRequest()->getProcessed(), 'full', TRUE) : 'Pending'; ?>
                 </td>
             </tr>
         </table>

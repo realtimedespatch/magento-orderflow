@@ -5,7 +5,7 @@
  */
 class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-    protected $_defaultSort = 'entity_id';
+    protected $_defaultSort = 'request_id';
 
     /**
      * Constructor.
@@ -17,9 +17,9 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
         parent::__construct();
 
         $this->setSaveParametersInSession(true);
-        $this->setId('entity_id');
-        $this->setIdFieldName('entity_id');
-        $this->setDefaultSort('entity_id', 'asc');
+        $this->setId('request_id');
+        $this->setIdFieldName('request_id');
+        $this->setDefaultSort('request_id', 'asc');
     }
 
     /**
@@ -29,6 +29,17 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
     {
         $collection = Mage::getModel('realtimedespatch/request')
             ->getCollection();
+
+	    $requestLinesTable = Mage::getSingleton('core/resource')->getTableName('realtimedespatch_request_lines');
+
+	    $collection->getSelect()->join(
+		    array('t2' => $requestLinesTable),
+            'main_table.entity_id = t2.request_id'
+        );
+
+        $collection->getSelect()->group(
+            't2.request_id'
+        );
 
         $this->setCollection($collection);
 
@@ -42,15 +53,15 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
      */
     protected function _prepareColumns()
     {
-        $this->addColumn('entity_id', array(
-            'header' => Mage::helper('realtimedespatch')->__('ID'),
-            'align'  =>'right',
-            'width'  => '50px',
-            'index'  => 'entity_id',
+        $this->addColumn('request_id', array(
+            'header'       => Mage::helper('realtimedespatch')->__('Magento ID'),
+            'align'        => 'left',
+            'index'        => 'request_id',
+            'filter_index' => 'request_id'
         ));
 
         $this->addColumn('message_id', array(
-            'header'   => Mage::helper('realtimedespatch')->__('Message ID'),
+            'header'   => Mage::helper('realtimedespatch')->__('OrderFlow ID'),
             'align'    => 'left',
             'index'    => 'message_id',
             'renderer' => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Request_Id(),
@@ -73,7 +84,15 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
             'index'        => 'created',
             'filter_index' => 'main_table.created',
             'type'         => 'datetime',
-            'width'        => '150px',
+        ));
+
+        $this->addColumn('Processed', array(
+            'header'       => Mage::helper('realtimedespatch')->__('Processed'),
+            'align'        => 'left',
+            'index'        => 'processed',
+            'filter_index' => 'processed',
+            'type'         => 'datetime',
+            'renderer'     => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Processed(),
         ));
 
         $this->addColumn('action',
@@ -105,7 +124,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
      */
     public function getRowUrl($row)
     {
-        return $this->getUrl('*/*/view', array('id' => $row->getEntityId()));
+        return $this->getUrl('*/*/view', array('id' => $row->getRequestId()));
     }
 
     /**
