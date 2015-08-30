@@ -60,6 +60,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
 
         if ( ! $request->getId()) {
             $this->_redirect('*/*/');
+            return;
         }
 
         if ( ! $request->canProcess()) {
@@ -68,6 +69,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
             );
 
             $this->_redirect('*/*/view', array('id' => $id));
+            return;
         }
 
         try {
@@ -85,5 +87,42 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
         }
 
         $this->_redirect('*/*/view', array('id' => $id));
+    }
+
+    /**
+     * Processes all outstanding requests.
+     *
+     * @return void
+     */
+    public function processAllAction()
+    {
+        $factory  = Mage::getModel('realtimedespatch/factory_service_importer');
+        $requests = Mage::getResourceModel('realtimedespatch/request_collection')->getAllProcessableRequests();
+
+        if (count($requests) == 0) {
+            Mage::getSingleton('core/session')->addError(
+                'There are no requests available to be processed.'
+            );
+
+            $this->_redirect('*/*/');
+            return;
+        }
+
+        try {
+            foreach ($requests as $request) {
+                $service = $factory->retrieve($request->getType());
+                $service->import($request->getLines());
+            }
+
+            Mage::getSingleton('core/session')->addSuccess(
+                'The request has been successfully processed.'
+            );
+        } catch (Exception $ex) {
+            Mage::getSingleton('core/session')->addError(
+                'Error processing requests: '.$ex->getMessage()
+            );
+        }
+
+        $this->_redirect('*/*/');
     }
 }
