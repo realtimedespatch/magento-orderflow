@@ -42,22 +42,15 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Lines_Grid extends Mage
      */
     protected function _prepareColumns()
     {
-        $this->addColumn('entity_id', array(
-            'header'    => Mage::helper('realtimedespatch')->__('Request Line ID'),
-            'align'     =>'right',
-            'width'     => '50px',
-            'index'     => 'entity_id',
-        ));
-
         $this->addColumn('sequence_id', array(
-            'header' => Mage::helper('realtimedespatch')->__('Sequence ID'),
+            'header' => Mage::helper('realtimedespatch')->__('OrderFlow Sequence ID'),
             'align'  => 'left',
             'index'  => 'sequence_id',
             'width'  => '200px',
         ));
 
         $this->addColumn('body', array(
-            'header' => Mage::helper('realtimedespatch')->__('Body'),
+            'header' => Mage::helper('realtimedespatch')->__('Data'),
             'align'  => 'left',
             'index'  => 'body',
             'width'  => '200px',

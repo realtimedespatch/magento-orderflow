@@ -20,6 +20,19 @@
                     <?php echo $this->getOrderflowRequest()->getType(); ?>
                 </td>
             </tr>
+            <?php $import = $this->getOrderflowRequest()->getImport(); ?>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Import') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php if ($import->getId()): ?>
+                        <a href="<?php echo $import->getAdminUrl(); ?>" title="View Import"><?php echo $import->getId(); ?></a>
+                    <?php else: ?>
+                        <?php echo __('Pending'); ?>
+                    <?php endif; ?>
+                </td>
+            </tr>
             <tr>
                 <td class="label">
                     <label><b><?php echo __('Received') ?></b></label>
@@ -28,12 +41,13 @@
                     <?php echo Mage::helper('core')->formatDate($this->getOrderflowRequest()->getCreated(), 'full', TRUE); ?>
                 </td>
             </tr>
+            <?php $processed = $this->getOrderflowRequest()->getProcessed(); ?>
             <tr>
                 <td class="label">
                     <label><b><?php echo __('Processed') ?></b></label>
                 </td>
                 <td class="value">
-                    <?php echo $this->getOrderflowRequest()->getProcessed() ? Mage::helper('core')->formatDate($this->getOrderflowRequest()->getProcessed(), 'full', TRUE) : 'Pending'; ?>
+                    <?php echo $processed ? Mage::helper('core')->formatDate($processed, 'full', TRUE) : 'Pending'; ?>
                 </td>
             </tr>
         </table>

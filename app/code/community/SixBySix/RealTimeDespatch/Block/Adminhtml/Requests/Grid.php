@@ -54,7 +54,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
     protected function _prepareColumns()
     {
         $this->addColumn('request_id', array(
-            'header'       => Mage::helper('realtimedespatch')->__('Magento ID'),
+            'header'       => Mage::helper('realtimedespatch')->__('Request ID'),
             'align'        => 'left',
             'index'        => 'request_id',
             'filter_index' => 'request_id'
@@ -65,6 +65,12 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
             'align'    => 'left',
             'index'    => 'message_id',
             'renderer' => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Request_Id(),
+        ));
+
+        $this->addColumn('import_id', array(
+            'header'   => Mage::helper('realtimedespatch')->__('Import ID'),
+            'align'    => 'left',
+            'renderer' => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Import_Id(),
         ));
 
         $this->addColumn('type', array(
