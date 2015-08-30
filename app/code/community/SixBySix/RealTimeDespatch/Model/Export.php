@@ -136,4 +136,18 @@ class SixBySix_RealTimeDespatch_Model_Export extends Mage_Core_Model_Abstract
     {
         return Mage::getModel('realtimedespatch/export_type_'.lcfirst($this->getEntity()));
     }
+
+    /**
+     * Returns the admin url to the import.
+     *
+     * @return string
+     */
+    public function getAdminUrl()
+    {
+        if ( ! $this->getId()) {
+            return '';
+        }
+
+        return Mage::helper('adminhtml')->getUrl('adminhtml/'.strtolower($this->getEntity()).'Exports/view/id/'.$this->getId());
+    }
 }
