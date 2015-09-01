@@ -106,14 +106,14 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
                 'header' => Mage::helper('catalog')->__('Action'),
                 'width' => '50px',
                 'type' => 'action',
-                'getter' => 'getImportId',
+                'getter' => 'getRequestId',
                 'actions' => array(
                     array(
                         'caption' => Mage::helper('catalog')->__('View'),
                         'url'     => array(
                             'base'=>'*/*/view',
                         ),
-                        'field' => 'request_id'
+                        'field' => 'id'
                     )
                 ),
                 'filter'   => false,
