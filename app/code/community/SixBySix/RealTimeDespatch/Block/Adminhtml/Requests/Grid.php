@@ -113,7 +113,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
                         'url'     => array(
                             'base'=>'*/*/view',
                         ),
-                        'field' => 'id'
+                        'field' => 'request_id'
                     )
                 ),
                 'filter'   => false,
