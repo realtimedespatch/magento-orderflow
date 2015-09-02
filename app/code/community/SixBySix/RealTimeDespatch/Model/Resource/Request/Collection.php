@@ -3,7 +3,7 @@
 /**
  * Request Collection Resource Model.
  */
-class SixBySix_RealTimeDespatch_Model_Resource_Request_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
+class SixBySix_RealTimeDespatch_Model_Resource_Request_Collection extends SixBySix_RealTimeDespatch_Model_Resource
 {
     /**
      * Constructor.

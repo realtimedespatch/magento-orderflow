@@ -45,7 +45,22 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
             return 'Logs Cleaned';
         }
 
-        return gzinflate(parent::getRequestBody());
+        $xml = '';
+
+        try
+        {
+            $dom = new \DOMDocument;
+            $dom->preserveWhiteSpace = false;
+            $dom->loadXML(gzinflate(parent::getRequestBody()));
+            $dom->formatOutput = true;
+            $xml = $dom->saveXml();
+        }
+        catch (\Exception $ex)
+        {
+            $xml = 'Request Unavailable';
+        }
+
+        return $xml;
     }
 
     /**
@@ -83,7 +98,46 @@ class SixBySix_RealTimeDespatch_Model_Request extends Mage_Core_Model_Abstract
     {
         return Mage::getResourceModel('realtimedespatch/request_line_collection')
                     ->addFieldToFilter('request_id', array('eq' => $this->getId()))
-                    ->addFieldToFilter('processed', array('null' => true))
                     ->setOrder('sequence_id', 'ASC');
+    }
+
+    /**
+     * Checks whether the request can be processed.
+     *
+     * @return mixed
+     */
+    public function canProcess()
+    {
+        return ! $this->getProcessed();
+    }
+
+    /**
+     * Returns the processed timestamp.
+     *
+     * @return mixed
+     */
+    public function getProcessed()
+    {
+        return Mage::getResourceModel('realtimedespatch/request_line_collection')
+                    ->addFieldToFilter('request_id', array('eq' => $this->getId()))
+                    ->setOrder('processed', 'ASC')
+                    ->setPageSize(1)
+                    ->setCurPage(1)
+                    ->getFirstItem()
+                    ->getProcessed();
+    }
+
+    /**
+     * Returns the related import.
+     *
+     * @return mixed
+     */
+    public function getImport()
+    {
+        return Mage::getResourceModel('realtimedespatch/import_collection')
+                    ->addFieldToFilter('request_id', array('eq' => $this->getId()))
+                    ->setPageSize(1)
+                    ->setCurPage(1)
+                    ->getFirstItem();
     }
 }

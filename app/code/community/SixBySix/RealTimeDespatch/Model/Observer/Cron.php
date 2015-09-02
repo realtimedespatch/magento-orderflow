@@ -66,7 +66,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron
         $service = $factory->retrieve(SixBySix_RealTimeDespatch_Model_Factory_Service_Importer::IMPORTER_SHIPMENT);
 
         foreach ($requests as $request) {
-            $service->import(array($request));
+            $service->import($request);
         }
     }
 
@@ -89,7 +89,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron
         $service = $factory->retrieve(SixBySix_RealTimeDespatch_Model_Factory_Service_Importer::IMPORTER_INVENTORY);
 
         foreach ($requests as $request) {
-            $service->import($request->getLines());
+            $service->import($request);
         }
     }
 

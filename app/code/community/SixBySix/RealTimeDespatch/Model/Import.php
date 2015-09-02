@@ -162,8 +162,6 @@ class SixBySix_RealTimeDespatch_Model_Import extends Mage_Core_Model_Abstract
             $xml = 'Unavailable';
         }
     }
-<<<<<<< Updated upstream
-=======
 
     /**
      * Returns the admin url to the import.
@@ -178,5 +176,4 @@ class SixBySix_RealTimeDespatch_Model_Import extends Mage_Core_Model_Abstract
 
         return Mage::helper('adminhtml')->getUrl('adminhtml/'.strtolower($this->getEntity()).'Imports/view/id/'.$this->getId());
     }
->>>>>>> Stashed changes
 }
