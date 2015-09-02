@@ -1,0 +1,18 @@
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Bulk Catalogue Export') ?></h4>
+    </div>
+    <div class="fieldset">
+        <table cellspacing="0" class="form-list">
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Last Executed') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php $executed = $this->getExport()->getExecuted(); ?>
+                    <?php echo $executed ? Mage::helper('core')->formatDate($executed, 'full', TRUE) : 'N/A'; ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
