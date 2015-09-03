@@ -15,3 +15,8 @@ $installer->getConnection()
     );
 
 $installer->endSetup();
+
+// Truncate Cron
+Mage::getSingleton('core/resource')
+    ->getConnection('core_write')
+    ->query("DELETE * FROM ".Mage::getSingleton('core/resource')->getTableName('realtimedespatch_process_schedules'));
