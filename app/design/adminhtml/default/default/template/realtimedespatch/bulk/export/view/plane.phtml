@@ -10,7 +10,7 @@
                 </td>
                 <td class="value">
                     <?php $executed = $this->getExport()->getExecuted() ? new \DateTime($this->getExport()->getExecuted()) : null; ?>
-                    <?php echo $executed ? $executed->format('jS M Y') : 'N/A'; ?>
+                    <?php echo $executed ? $executed->format('jS M Y h:i:s') : 'N/A'; ?>
                 </td>
             </tr>
         </table>
