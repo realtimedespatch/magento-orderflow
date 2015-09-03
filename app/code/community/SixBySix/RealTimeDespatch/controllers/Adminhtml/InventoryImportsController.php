@@ -15,7 +15,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_InventoryImportsController extends Mag
      */
     protected function _isAllowed()
     {
-        return Mage::getSingleton('admin/session')->isAllowed('realtimedespatch/inventoryimports');
+        return Mage::getSingleton('admin/session')->isAllowed('realtimedespatch/imports/inventoryimports');
     }
 
     /**

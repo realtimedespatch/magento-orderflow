@@ -115,7 +115,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_RequestsController extends Mage_Adminh
             }
 
             Mage::getSingleton('core/session')->addSuccess(
-                'The request has been successfully processed.'
+                'All requests have been successfully processed.'
             );
         } catch (Exception $ex) {
             Mage::getSingleton('core/session')->addError(

@@ -15,7 +15,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_ProductExportsController extends Mage_
      */
     protected function _isAllowed()
     {
-        return Mage::getSingleton('admin/session')->isAllowed('realtimedespatch/productexports');
+        return Mage::getSingleton('admin/session')->isAllowed('realtimedespatch/exports/productexports');
     }
 
     /**

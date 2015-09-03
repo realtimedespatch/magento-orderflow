@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SixBySix_RealTimeDespatch>
-            <version>1.0.0.28</version>
+            <version>1.0.0.29</version>
         </SixBySix_RealTimeDespatch>
     </modules>
     <admin>
@@ -112,6 +112,9 @@
                     <process>
                         <table>realtimedespatch_processes</table>
                     </process>
+                    <bulk_export>
+                        <table>realtimedespatch_bulk_export</table>
+                    </bulk_export>
                     <process_schedule>
                         <table>realtimedespatch_process_schedules</table>
                     </process_schedule>
@@ -146,6 +149,7 @@
             <adminhtml>
                 <rewrite>
                     <catalog_product_grid>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                    <adminhtml_bulk_export_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Bulk_Export_View_Plane</adminhtml_bulk_export_view_view_plane>
                     <adminhtml_exports_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Exports_View_Plane</adminhtml_exports_view_view_plane>
                     <adminhtml_imports_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_View_Plane</adminhtml_imports_view_view_plane>
                     <adminhtml_requests_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_View_Plane</adminhtml_requests_view_view_plane>
