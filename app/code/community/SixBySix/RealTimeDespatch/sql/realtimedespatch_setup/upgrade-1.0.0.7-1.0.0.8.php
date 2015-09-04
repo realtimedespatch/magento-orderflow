@@ -3,7 +3,7 @@
 $installer = $this;
 $installer->startSetup();
 
-if ($installer->getConnection()->isTableExists($installer->getTable('realtimedespatch/import')) !== true) {
+if ($installer->getConnection()->isTableExists($installer->getTable('realtimedespatch/request')) !== true) {
     $table = $installer->getConnection()->newTable(
         $installer->getTable('realtimedespatch/request'))
         ->addColumn(
