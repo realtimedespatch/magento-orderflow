@@ -10,14 +10,16 @@ There are two options for installing the extension.
 
 Note that the two approaches cannot be used interchangeably, if Composer is used to install the module all subsequent upgrades should also use Composer.
 
-<h3>Manual installation:</h3>
+<h3>Manual installation/updates:</h3>
 
 - Fetch the latest build from http://www.sixbysix.co.uk/orderflow/orderflow.tar.gz and unzip the files under the `orderflow` directory into your Magento installation.
 
 
 <h3>via Composer:</h3>
 
-- Drop the composer.json into your magento webroot and run `composer install`.
+- Drop the composer.json into your magento webroot and run `composer install` with the appropriate user permissions.
+
+- For updates, run `composer update`
 
 - Ensure that you have developer symlinks enabled in your admin area:
 

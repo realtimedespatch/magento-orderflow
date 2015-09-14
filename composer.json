@@ -21,7 +21,11 @@
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "*",
-        "sixbysix/realtime-despatch": "dev-master"
+        "sixbysix/realtime-despatch": "dev-master",
+        "ajbonner/magento-composer-autoload": "*"
+    },
+    "extra":{
+        "magento-root-dir": "./"
     },
     "minimum-stability": "dev"
 }
