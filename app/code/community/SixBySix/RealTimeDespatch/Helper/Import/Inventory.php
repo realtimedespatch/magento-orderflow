@@ -36,7 +36,7 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
      */
     public function getImportableRequests()
     {
-        return Mage::getResourceModel('realtimedespatch/request_line_collection')->getNextRequestLines(
+        return Mage::getResourceModel('realtimedespatch/request_collection')->getProcessableRequestsWithType(
             SixBySix_RealTimeDespatch_Model_Request_Type::REQUEST_TYPE_INVENTORY,
             $this->getBatchLimit()
         );
@@ -75,6 +75,6 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
     {
         Mage::getSingleton('core/resource')
             ->getConnection('core_write')
-            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'inventory_import' AND status = 'pending'");
+            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'orderflow_inventory_import' AND status = 'pending'");
     }
 }

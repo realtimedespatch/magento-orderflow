@@ -1,0 +1,75 @@
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Request Details') ?></h4>
+    </div>
+    <div class="fieldset">
+        <table cellspacing="0" class="form-list">
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('OrderFlow ID') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getOrderflowRequest()->getMessageId(); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Type') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $this->getOrderflowRequest()->getType(); ?>
+                </td>
+            </tr>
+            <?php $import = $this->getOrderflowRequest()->getImport(); ?>
+            <?php $processed = $this->getOrderflowRequest()->getProcessed(); ?>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Import') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php if ($import->getId()): ?>
+                        <a href="<?php echo $import->getAdminUrl(); ?>" title="View Import"><?php echo $import->getId(); ?></a>
+                    <?php elseif ($processed): ?>
+                        <?php echo __('N/A'); ?>
+                    <?php else: ?>
+                        <?php echo __('Pending'); ?>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Received') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo Mage::helper('core')->formatDate($this->getOrderflowRequest()->getCreated(), 'full', TRUE); ?>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    <label><b><?php echo __('Processed') ?></b></label>
+                </td>
+                <td class="value">
+                    <?php echo $processed ? Mage::helper('core')->formatDate($processed, 'full', TRUE) : 'Pending'; ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Request Lines') ?></h4>
+    </div>
+    <div class="fieldset">
+        <?php echo $this->getChildHtml('lines'); ?>
+    </div>
+</div>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head"><?php echo $this->__('Request Body') ?></h4>
+    </div>
+    <div style="word-wrap: break-word;" class="fieldset">
+        <pre><?php echo htmlentities($this->getOrderflowRequest()->getRequestBody()); ?></pre>
+    </div>
+</div>

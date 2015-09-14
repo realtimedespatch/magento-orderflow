@@ -8,12 +8,12 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Shipment extends SixBySix
     /**
      * {@inheritdoc}
      */
-    protected function _import($requestLines)
+    protected function _import($request)
     {
-        $report      = $this->_createReport();
+        $report      = $this->_createReport($request);
         $reportLines = array();
 
-        foreach ($requestLines as $requestLine) {
+        foreach ($request->getLines() as $requestLine) {
             $reportLines[] = $this->_createShipment($report, $requestLine);
         }
 

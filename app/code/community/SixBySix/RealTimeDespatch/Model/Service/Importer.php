@@ -15,11 +15,11 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Importer
     /**
      * Performs an import.
      *
-     * @param mixed $requestLines
+     * @param mixed $request
      *
      * @return void
      */
-    public function import($requestLines)
+    public function import($request)
     {
         if ( ! $this->_isEnabled()) {
             return;
@@ -27,13 +27,13 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Importer
 
         try
         {
-            $report = $this->_import($requestLines);
+            $report = $this->_import($request);
 
             $this->_dispatchEvent(
                 'rtd_import_success',
                 array(
                     'report' => $report,
-                    'lines'  => $requestLines,
+                    'lines'  => $request->getLines(),
                     'entity' => $this->_getEntity(),
                     'type'   => $this->_getType(),
                 )
@@ -57,14 +57,17 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Importer
     /**
      * Creates a new report.
      *
+     * @param mixed $request
+     *
      * @return Varien_Object
      */
-    protected function _createReport()
+    protected function _createReport($request)
     {
         $report = new Varien_Object;
 
         $report->setType($this->_getType());
         $report->setEntityType($this->_getEntity());
+        $report->setRequestId($request->getId());
         $report->setFailures(0);
         $report->setSuccesses(0);
         $report->setDuplicates(0);

@@ -36,12 +36,10 @@ class SixBySix_RealTimeDespatch_Helper_Import_Shipment extends Mage_Core_Helper_
      */
     public function getImportableRequests()
     {
-        return  Mage::getResourceModel('realtimedespatch/request_line_collection')
-                    ->addFieldToFilter('type', array('eq' => SixBySix_RealTimeDespatch_Model_Request_Type::REQUEST_TYPE_SHIPMENT))
-                    ->addFieldToFilter('processed', array('null' => true))
-                    ->setOrder('sequence_id', 'ASC')
-                    ->setPageSize($this->getBatchLimit())
-                    ->setCurPage(1);
+        return Mage::getResourceModel('realtimedespatch/request_collection')->getProcessableRequestsWithType(
+            SixBySix_RealTimeDespatch_Model_Request_Type::REQUEST_TYPE_SHIPMENT,
+            $this->getBatchLimit()
+        );
     }
 
     /**
@@ -67,6 +65,6 @@ class SixBySix_RealTimeDespatch_Helper_Import_Shipment extends Mage_Core_Helper_
     {
         Mage::getSingleton('core/resource')
             ->getConnection('core_write')
-            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'shipment_import' AND status = 'pending'");
+            ->query("UPDATE ".Mage::getSingleton('core/resource')->getTableName('cron_schedule')." SET scheduled_at = DATE_ADD(scheduled_at, INTERVAL ".$minutes." MINUTE) WHERE job_code = 'orderflow_shipment_import' AND status = 'pending'");
     }
 }

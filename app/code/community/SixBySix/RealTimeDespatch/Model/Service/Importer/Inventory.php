@@ -8,12 +8,12 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
     /**
      * {@inheritdoc}
      */
-    protected function _import($requestLines)
+    protected function _import($request)
     {
-        $report      = $this->_createReport();
+        $report      = $this->_createReport($request);
         $reportLines = array();
 
-        foreach ($requestLines as $requestLine) {
+        foreach ($request->getLines() as $requestLine) {
             $body      = $requestLine->getBody();
             $sku       = $body->key;
             $productId = Mage::getModel("catalog/product")->getIdBySku($body->key);
@@ -34,6 +34,20 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
                     $requestLine->sequence_id,
                     $sku,
                     'Duplicate Inventory Update Ignored.'
+                );
+                continue;
+            }
+
+            if ($importLine = $this->getSupersedingImportLine($sku, $requestLine->sequence_id)) {
+                $reportLines[] = $this->_createDuplicateReportLine(
+                    $report,
+                    $requestLine->sequence_id,
+                    $sku,
+                    sprintf(
+                        'Product quantity update to %d discarded as already superseded by inventory record %d',
+                        (int) $body->value,
+                        $importLine->getSequenceId()
+                    )
                 );
                 continue;
             }
@@ -84,6 +98,28 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
         $report->setLines($reportLines);
 
         return $report;
+    }
+
+    /**
+     * Prevent an import from being performed if inventory updates have
+     * fallen out of sync.
+     *
+     * @param string $sku
+     * @param int $sequenceId
+     *
+     * @return SixBySix_RealTimeDespatch_Model_Import_Line
+     */
+    public function getSupersedingImportLine($sku, $sequenceId)
+    {
+        /** @var SixBySix_RealTimeDespatch_Model_Import_Line $importLine */
+        $importLine = SixBySix_RealTimeDespatch_Model_Resource_Import_Line_Collection::getLatestImportLineByReference(
+            $this->_getEntity(),
+            $sku
+        );
+
+        if ($importLine && $importLine->getSequenceId() > $sequenceId) {
+            return $importLine;
+        }
     }
 
     /**

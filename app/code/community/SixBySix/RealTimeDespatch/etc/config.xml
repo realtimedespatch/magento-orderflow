@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SixBySix_RealTimeDespatch>
-            <version>1.0.0.26</version>
+            <version>1.0.0.30</version>
         </SixBySix_RealTimeDespatch>
     </modules>
     <admin>
@@ -112,6 +112,9 @@
                     <process>
                         <table>realtimedespatch_processes</table>
                     </process>
+                    <bulk_export>
+                        <table>realtimedespatch_bulk_export</table>
+                    </bulk_export>
                     <process_schedule>
                         <table>realtimedespatch_process_schedules</table>
                     </process_schedule>
@@ -146,8 +149,10 @@
             <adminhtml>
                 <rewrite>
                     <catalog_product_grid>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                    <adminhtml_bulk_export_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Bulk_Export_View_Plane</adminhtml_bulk_export_view_view_plane>
                     <adminhtml_exports_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Exports_View_Plane</adminhtml_exports_view_view_plane>
                     <adminhtml_imports_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_View_Plane</adminhtml_imports_view_view_plane>
+                    <adminhtml_requests_view_view_plane>SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_View_Plane</adminhtml_requests_view_view_plane>
                     <sales_order_grid>SixBySix_RealTimeDespatch_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
                     <catalog_product_edit_tab_inventory>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Edit_Tab_Inventory</catalog_product_edit_tab_inventory>
                     <catalog_product_edit_tab_attributes>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes</catalog_product_edit_tab_attributes>
@@ -266,31 +271,31 @@
     </default>
     <crontab>
         <jobs>
-            <product_export>
+            <orderflow_product_export>
                 <run>
                     <model>realtimedespatch/observer_cron::executeProductExport</model>
                 </run>
-            </product_export>
-            <order_export>
+            </orderflow_product_export>
+            <orderflow_order_export>
                 <run>
                     <model>realtimedespatch/observer_cron::executeOrderExport</model>
                 </run>
-            </order_export>
-            <shipment_import>
+            </orderflow_order_export>
+            <orderflow_shipment_import>
                 <run>
                     <model>realtimedespatch/observer_cron::executeShipmentImport</model>
                 </run>
-            </shipment_import>
-            <inventory_import>
+            </orderflow_shipment_import>
+            <orderflow_inventory_import>
                 <run>
                     <model>realtimedespatch/observer_cron::executeInventoryImport</model>
                 </run>
-            </inventory_import>
-            <log_cleaning>
+            </orderflow_inventory_import>
+            <orderflow_log_cleaning>
                 <run>
                     <model>realtimedespatch/observer_cron::executeLogCleaning</model>
                 </run>
-            </log_cleaning>
+            </orderflow_log_cleaning>
         </jobs>
     </crontab>
     <rtd_mappings>
