@@ -60,14 +60,6 @@ class SixBySix_RealTimeDespatch_Helper_Export_Product extends Mage_Core_Helper_A
                 )
                 ->addAttributeToFilter(
                     array(
-                        array('attribute' => 'is_exported', 'null' => true),
-                        array('attribute'=> 'is_exported','eq' => 0)
-                    ),
-                '',
-                'left'
-                )
-                ->addAttributeToFilter(
-                    array(
                         array('attribute' => 'exported_at', 'null' => true),
                         array('attribute'=> 'exported_at','lt' => new Zend_Db_Expr('updated_at'))
                     ),
