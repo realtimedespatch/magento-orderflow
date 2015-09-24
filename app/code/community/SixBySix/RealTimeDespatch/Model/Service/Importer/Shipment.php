@@ -49,6 +49,13 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Shipment extends SixBySix
                 $this->_retrieveOrder($body->orderIncrementId),
                 $body
             );
+
+            return $this->_createSuccessReportLine(
+                $report,
+                $requestLine->sequence_id,
+                $shipment->increment_id,
+                'Order '.$body->orderIncrementId.' successfully shipped.'
+            );
         }
         catch (Exception $ex)
         {
@@ -59,13 +66,6 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Shipment extends SixBySix
                 'Order '.$body->orderIncrementId.' not shipped - '.$ex->getMessage()
             );
         }
-
-        return $this->_createSuccessReportLine(
-            $report,
-            $requestLine->sequence_id,
-            $shipment->increment_id,
-            'Order '.$body->orderIncrementId.' successfully shipped.'
-        );
     }
 
     /**
