@@ -12,7 +12,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://sixbysix.codebasehq.com/realtime-despatch/orderflow-api-library.git"
+            "url": "https://realtime-despatch-magento-module.codebasehq.com/development/orderflow-api-library.git"
         },
         {
             "type": "composer",

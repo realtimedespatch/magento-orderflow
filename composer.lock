@@ -1,23 +1,373 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c1db4c21687cab93e98c4db54acbafbb",
+    "hash": "0aafa3387cf6015a81b6759bd9302d8e",
     "packages": [
+        {
+            "name": "ajbonner/magento-composer-autoload",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ajbonner/magento-composer-autoload.git",
+                "reference": "b3930038e006da4a7343f6ef36be10b33cc3e232"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ajbonner/magento-composer-autoload/zipball/b3930038e006da4a7343f6ef36be10b33cc3e232",
+                "reference": "b3930038e006da4a7343f6ef36be10b33cc3e232",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "magento-module",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Bonner",
+                    "email": "aaron@aaronbonner.io"
+                }
+            ],
+            "description": "Extension of Magento's class autoloader making it composer vendor library aware",
+            "homepage": "https://github.com/ajbonner/magento-composer-autoload",
+            "support": {
+                "source": "https://github.com/ajbonner/magento-composer-autoload/tree/master",
+                "issues": "https://github.com/ajbonner/magento-composer-autoload/issues"
+            },
+            "time": "2014-11-14 13:34:26"
+        },
+        {
+            "name": "eloquent/composer-config-reader",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/composer-config-reader.git",
+                "reference": "b79319806e1bcc101c89a023b3aeee9e5931e463"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/composer-config-reader/zipball/b79319806e1bcc101c89a023b3aeee9e5931e463",
+                "reference": "b79319806e1bcc101c89a023b3aeee9e5931e463",
+                "shasum": ""
+            },
+            "require": {
+                "eloquent/enumeration": "~5",
+                "eloquent/liberator": "~1",
+                "icecave/isolator": "~2",
+                "justinrainbow/json-schema": "~1",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "~1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Composer\\Configuration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "A light-weight component for reading Composer configuration files.",
+            "homepage": "https://github.com/eloquent/composer-config-reader",
+            "keywords": [
+                "composer",
+                "configuration",
+                "parser",
+                "reader"
+            ],
+            "time": "2014-01-22 01:05:31"
+        },
+        {
+            "name": "eloquent/enumeration",
+            "version": "5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/enumeration.git",
+                "reference": "9c50109cf25b2008b9b8233b814e50e0cdf8b737"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/enumeration/zipball/9c50109cf25b2008b9b8233b814e50e0cdf8b737",
+                "reference": "9c50109cf25b2008b9b8233b814e50e0cdf8b737",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "~1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Enumeration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "An enumeration implementation for PHP.",
+            "homepage": "https://github.com/eloquent/enumeration",
+            "keywords": [
+                "class",
+                "enum",
+                "enumeration",
+                "multiton",
+                "set",
+                "type"
+            ],
+            "time": "2014-03-13 01:16:59"
+        },
+        {
+            "name": "eloquent/liberator",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/liberator.git",
+                "reference": "a85435066850ab47acc61296c5d20732ff4c9655"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/liberator/zipball/a85435066850ab47acc61296c5d20732ff4c9655",
+                "reference": "a85435066850ab47acc61296c5d20732ff4c9655",
+                "shasum": ""
+            },
+            "require": {
+                "eloquent/pops": "~3",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "icecave/archer": "~0.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Eloquent\\Liberator": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "A proxy for circumventing PHP access modifier restrictions.",
+            "homepage": "https://github.com/eloquent/liberator",
+            "keywords": [
+                "access",
+                "modifier",
+                "object",
+                "private",
+                "protected",
+                "proxy",
+                "reflection"
+            ],
+            "time": "2013-03-03 23:02:47"
+        },
+        {
+            "name": "eloquent/pops",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/pops.git",
+                "reference": "b14090a3478f544d1b3a3b9389cb03415cf4f37f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eloquent/pops/zipball/b14090a3478f544d1b3a3b9389cb03415cf4f37f",
+                "reference": "b14090a3478f544d1b3a3b9389cb03415cf4f37f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "icecave/archer": "~0.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Eloquent\\Pops": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "PHP object proxy system.",
+            "homepage": "https://github.com/eloquent/pops",
+            "keywords": [
+                "escaping",
+                "object",
+                "proxy"
+            ],
+            "time": "2013-03-04 10:10:43"
+        },
+        {
+            "name": "icecave/isolator",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/isolator.git",
+                "reference": "97c51fafa39c57a8f1a31f978a48fbe6cea4a5d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/isolator/zipball/97c51fafa39c57a8f1a31f978a48fbe6cea4a5d5",
+                "reference": "97c51fafa39c57a8f1a31f978a48fbe6cea4a5d5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "~1"
+            },
+            "suggest": {
+                "eloquent/asplode": "Drop-in exception-based error handling."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Icecave\\Isolator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au",
+                    "homepage": "https://github.com/jmalloc"
+                }
+            ],
+            "description": "Dependency injection for global functions.",
+            "homepage": "https://github.com/IcecaveStudios/isolator",
+            "keywords": [
+                "fake",
+                "mock",
+                "phake",
+                "phpunit",
+                "test",
+                "unit"
+            ],
+            "time": "2014-08-12 03:16:11"
+        },
+        {
+            "name": "justinrainbow/json-schema",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "a4bee9f4b344b66e0a0d96c7afae1e92edf385fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/a4bee9f4b344b66e0a0d96c7afae1e92edf385fe",
+                "reference": "a4bee9f4b344b66e0a0d96c7afae1e92edf385fe",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "json-schema/json-schema-test-suite": "1.1.0",
+                "phpdocumentor/phpdocumentor": "~2",
+                "phpunit/phpunit": "~3.7"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2015-09-08 22:28:04"
+        },
         {
             "name": "kriswallsmith/buzz",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "487760b05d6269a4c2c374364325326cfa65b12c"
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/487760b05d6269a4c2c374364325326cfa65b12c",
-                "reference": "487760b05d6269a4c2c374364325326cfa65b12c",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
                 "shasum": ""
             },
             "require": {
@@ -52,15 +402,113 @@
                 "curl",
                 "http client"
             ],
-            "time": "2014-09-15 12:42:36"
+            "time": "2015-06-25 17:26:56"
+        },
+        {
+            "name": "magento-hackathon/magento-composer-installer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Cotya/magento-composer-installer.git",
+                "reference": "c89683ac8e8a925abb8658bbf164f95b3ec4ad56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Cotya/magento-composer-installer/zipball/c89683ac8e8a925abb8658bbf164f95b3ec4ad56",
+                "reference": "c89683ac8e8a925abb8658bbf164f95b3ec4ad56",
+                "shasum": ""
+            },
+            "archive": {
+                "exclude": [
+                    "vendor",
+                    "/tests/FullStackTest/"
+                ]
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0",
+                "eloquent/composer-config-reader": "2.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "composer/composer": "*@dev",
+                "firegento/phpcs": "1.1.0",
+                "mikey179/vfsstream": "*",
+                "phpunit/phpunit": "*",
+                "phpunit/phpunit-mock-objects": "dev-master",
+                "squizlabs/php_codesniffer": "1.4.7",
+                "symfony/process": "*"
+            },
+            "suggest": {
+                "colinmollenhour/modman": "*",
+                "magento-hackathon/composer-command-integrator": "*",
+                "theseer/autoload": "~1.14",
+                "zetacomponents/console-tools": "dev-master"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "composer-command-registry": [
+                    "MagentoHackathon\\Composer\\Magento\\Command\\DeployCommand"
+                ],
+                "class": "MagentoHackathon\\Composer\\Magento\\Plugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "MagentoHackathon\\Composer\\Magento": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-0": {
+                    "MagentoHackathon\\Composer\\Magento": "tests/"
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Fahlke aka Flyingmana",
+                    "email": "flyingmana@googlemail.com"
+                },
+                {
+                    "name": "Jörg Weller",
+                    "email": "weller@flagbit.de"
+                },
+                {
+                    "name": "Karl Spies",
+                    "email": "karl.spies@gmx.net"
+                },
+                {
+                    "name": "Tobias Vogt",
+                    "email": "tobi@webguys.de"
+                },
+                {
+                    "name": "David Fuhr",
+                    "email": "fuhr@flagbit.de"
+                },
+                {
+                    "name": "Vinai Kopp",
+                    "email": "vinai@netzarbeiter.com"
+                }
+            ],
+            "description": "Composer installer for Magento modules",
+            "homepage": "https://github.com/Cotya/magento-composer-installer",
+            "keywords": [
+                "composer-installer",
+                "magento"
+            ],
+            "support": {
+                "source": "https://github.com/Cotya/magento-composer-installer/tree/2.1",
+                "issues": "https://github.com/Cotya/magento-composer-installer/issues"
+            },
+            "time": "2015-03-25 12:24:13"
         },
         {
             "name": "sixbysix/realtime-despatch",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://sixbysix.codebasehq.com/realtime-despatch/orderflow-api-library.git",
-                "reference": "edfa364220ccbc8005e5083cbcadcef286293534"
+                "url": "https://realtime-despatch-magento-module.codebasehq.com/development/orderflow-api-library.git",
+                "reference": "18de7dff37293e9ab307517b235748af7783191a"
             },
             "require": {
                 "kriswallsmith/buzz": "*"
@@ -76,29 +524,22 @@
             ],
             "authors": [
                 {
-                    "name": "SixBySix",
-                    "email": "support@sixbysix.co.uk"
+                    "name": "Tom Birch",
+                    "email": "thomb2233@gmail.com"
                 }
             ],
             "description": "Real Time Despatch Integration Library",
-            "time": "2014-06-30 19:06:13"
+            "time": "2015-07-04 13:10:20"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "sixbysix/realtime-despatch": 20
     },
     "prefer-stable": false,
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }
