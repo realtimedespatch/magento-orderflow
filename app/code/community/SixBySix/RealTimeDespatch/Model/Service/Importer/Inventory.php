@@ -144,9 +144,12 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
             array(
                 $qty,
                 $isInStock,
+                $productId
+            ),
+        	array(
                 $qty,
                 $stockStatus,
-                $productId,
+                $productId
             )
         );
     }
@@ -158,24 +161,30 @@ class SixBySix_RealTimeDespatch_Model_Service_Importer_Inventory extends SixBySi
      *
      * @return void
      */
-    protected function _writeInventory($binds)
+    protected function _writeInventory($itemBinds,$statusBinds)
     {
         $write = Mage::getSingleton('core/resource')->getConnection('core_write');
         $rsc   = Mage::getSingleton("core/resource");
         $csi   = $rsc->getTableName('cataloginventory_stock_item');
         $css   = $rsc->getTableName('cataloginventory_stock_status');
 
-        $sql = "UPDATE ".$csi." csi, ".$css." css
+        $itemSql = "UPDATE ".$csi." csi
                 SET
                 csi.qty = ?,
-                csi.is_in_stock = ?,
+                csi.is_in_stock = ?
+                WHERE
+                csi.product_id = ?";
+
+        $write->query($itemSql, $itemBinds);
+        
+        $statusSql = "UPDATE ".$css." css
+                SET
                 css.qty = ?,
                 css.stock_status = ?
                 WHERE
-                csi.product_id = ?
-                AND csi.product_id = css.product_id";
-
-        $write->query($sql, $binds);
+                css.product_id = ?";
+        
+        $write->query($statusSql, $statusBinds);
     }
 
     /**
