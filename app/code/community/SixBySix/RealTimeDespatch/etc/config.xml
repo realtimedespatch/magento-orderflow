@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SixBySix_RealTimeDespatch>
-            <version>1.0.0.34</version>
+            <version>1.0.0.35</version>
         </SixBySix_RealTimeDespatch>
     </modules>
     <admin>
@@ -252,6 +252,7 @@
                 <is_enabled>0</is_enabled>
                 <cron_expr></cron_expr>
                 <batch_size>100</batch_size>
+                <exportable_order_statuses>processing</exportable_order_statuses>
             </order_export>
             <shipment_import>
                 <is_enabled>0</is_enabled>
@@ -343,6 +344,7 @@
             <GrandTotal>totalPriceGross</GrandTotal>
             <TaxAmount>totalTax</TaxAmount>
             <TotalTaxCode>taxCode</TotalTaxCode>
+            <Status>status</Status>
         </order>
         <order_shipment>
             <CustomerNote>deliveryInstruction</CustomerNote>

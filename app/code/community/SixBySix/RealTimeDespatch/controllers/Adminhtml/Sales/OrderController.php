@@ -17,7 +17,7 @@ class SixBySix_RealTimeDespatch_Adminhtml_Sales_OrderController extends Mage_Adm
         $orders = Mage::getResourceModel('sales/order_collection');
         $orders->addFieldToFilter('entity_id', array('in' => (array) $this->getRequest()->getParam('order_ids')))
                ->addFieldToFilter('is_virtual', array('eq' => 0))
-               ->addFieldToFilter('state', array('eq' => Mage_Sales_Model_Order::STATE_PROCESSING))
+               ->addFieldToFilter('status', array('in' => Mage::helper('realtimedespatch/export_order')->getExportableOrderStatuses()))
                ->load();
 
         if ( ! count($orders) > 0) {

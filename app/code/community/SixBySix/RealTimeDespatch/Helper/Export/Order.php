@@ -30,14 +30,24 @@ class SixBySix_RealTimeDespatch_Helper_Export_Order extends Mage_Core_Helper_Abs
     }
 
     /**
+     * Returns the exportable order statuses.
+     *
+     * @return array
+     */
+    public function getExportableOrderStatuses()
+    {
+        return explode(',', Mage::getStoreConfig('sixbysix_realtimedespatch/order_export/exportable_order_statuses'));
+    }
+
+    /**
      * Returns a list of orders that can be exported.
      *
      * @return Mage_Sales_Model_Resource_Order_Collection
      */
     public function getExportableOrders()
     {
-        return  Mage::getResourceModel('sales/order_collection')
-                    ->addFieldToFilter('state', array('eq' => Mage_Sales_Model_Order::STATE_PROCESSING))
+        return Mage::getResourceModel('sales/order_collection')
+                    ->addFieldToFilter('status', array('in' => $this->getExportableOrderStatuses()))
                     ->addFieldToFilter('is_virtual', array('eq' => 0))
                     ->addFieldToFilter('is_exported', array('eq' => 0))
                     ->addFieldToFilter('export_failures', array('lt' => 4))
