@@ -250,6 +250,7 @@
             </product_export>
             <order_export>
                 <is_enabled>0</is_enabled>
+                <is_discount_enabled>0</is_discount_enabled>
                 <cron_expr></cron_expr>
                 <batch_size>100</batch_size>
                 <exportable_order_statuses>processing</exportable_order_statuses>

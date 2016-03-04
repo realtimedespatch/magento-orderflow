@@ -20,6 +20,16 @@ class SixBySix_RealTimeDespatch_Helper_Export_Order extends Mage_Core_Helper_Abs
     }
 
     /**
+     * Checks whether the discount feature is enabled.
+     *
+     * @return boolean
+     */
+    public function isDiscountEnabled()
+    {
+        return Mage::getStoreConfigFlag('sixbysix_realtimedespatch/order_export/is_discount_enabled');
+    }
+
+    /**
      * Returns the current order export batch limit.
      *
      * @return integer

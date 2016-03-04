@@ -150,7 +150,38 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
             $orderFlowLine->setParam($rtdKey, $item->{'get'.$magentoKey}());
         }
 
+        if (Mage::helper('realtimedespatch/export_order')->isDiscountEnabled()) {
+            $orderFlowLine = $this->_calculateDiscounts($item, $orderFlowLine);
+        }
+
         $orderFlowLine->setProduct(new RTDProduct($item->getSku()));
+
+        return $orderFlowLine;
+    }
+
+    /**
+     * Calculates the discounts for an item
+     *
+     * @param Mage_Sales_Model_Order_Item                 $item
+     * @param \SixBySix\RealtimeDespatch\Entity\OrderLine $orderFlowLine
+     *
+     * @return \SixBySix\RealtimeDespatch\Entity\OrderLine
+     */
+    protected function _calculateDiscounts($item, $orderFlowLine)
+    {
+        $totalPriceNet   = $item->getRowTotal() + $item->getHiddenTaxAmount() + $item->getWeeeTaxAppliedRowAmount() - abs($item->getDiscountAmount());
+        $totalTax        = $item->getTaxAmount() + $item->getWeeeTaxAppliedRowAmount();
+        $totalPriceGross =  $item->getRowTotal() + ($item->getTaxAmount() + $item->getWeeeTaxAppliedRowAmount()) + $item->getHiddenTaxAmount() - abs($item->getDiscountAmount());
+        $unitPriceNet    = ($totalPriceNet / (double)$item->getQtyOrdered());
+        $unitTax         = ($totalTax / (double)$item->getQtyOrdered());
+        $unitPriceGross  = ($totalPriceGross / (double)$item->getQtyOrdered());
+
+        $orderFlowLine->setParam('totalPriceNet', $totalPriceNet);
+        $orderFlowLine->setParam('totalTax', $totalTax);
+        $orderFlowLine->setParam('totalPriceGross', $totalPriceGross);
+        $orderFlowLine->setParam('unitPriceNet', $unitPriceNet);
+        $orderFlowLine->setParam('unitTax', $unitTax);
+        $orderFlowLine->setParam('unitPriceGross', $unitPriceGross);
 
         return $orderFlowLine;
     }
