@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SixBySix_RealTimeDespatch>
-            <version>1.0.0.35</version>
+            <version>1.0.0.36</version>
         </SixBySix_RealTimeDespatch>
     </modules>
     <admin>
