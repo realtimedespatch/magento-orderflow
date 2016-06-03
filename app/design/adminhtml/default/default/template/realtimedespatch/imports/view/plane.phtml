@@ -74,3 +74,26 @@
 </div>
 
 <?php echo $this->getChildHtml('xml'); ?>
+
+<?php if ($this->getImport()->getEntity() == 'Inventory'): ?>
+<div class="entry-edit" style="margin-top: 20px;">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-payment-method">Additional Information</h4>
+    </div>
+    <fieldset>
+        <p>
+            <strong>Units Received</strong><br />
+            The 'available stock' figure received from OrderFlow.
+        </p>
+        <p>
+            <strong>Units Adjusted (Quotes)</strong><br />
+            The quantity required for active quotes for orders not yet submitted.
+        </p>
+        <p>
+            <strong>Units Adjusted (Queued)</strong><br />
+            The quantity required by orders not yet exported to OrderFlow.
+        </p>
+        <p>How the values in the columns above are used to determine the 'Updated Stock Qty' will be determined by the settings in 'Inventory Import' section of the module configuration.</p>
+    </fieldset>
+</div>
+<?php endif; ?>

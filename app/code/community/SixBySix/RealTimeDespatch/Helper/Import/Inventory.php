@@ -49,7 +49,47 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
      */
     public function isNegativeQtyEnabled()
     {
-        return (boolean) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/negative_qtys_enabled');
+        return Mage::getStoreConfigFlag('sixbysix_realtimedespatch/inventory_import/negative_qtys_enabled');
+    }
+
+    /**
+     * Checks whether adjustments are to be calculated, and applied.
+     *
+     * @return boolean
+     */
+    public function isInventoryAdjustmentEnabled()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/adjust_inventory') !== 0;
+    }
+
+    /**
+     * Checks whether adjustments are to be calculated for unsent orders.
+     *
+     * @return boolean
+     */
+    public function isUnsentOrderAdjustmentEnabled()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/adjust_inventory') > 0;
+    }
+
+    /**
+     * Checks whether adjustments are to be calculated for active quotes.
+     *
+     * @return boolean
+     */
+    public function isActiveQuoteAdjustmentEnabled()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/adjust_inventory') > 1;
+    }
+
+    /**
+     * Returns the valid unsent order statuses.
+     *
+     * @return array
+     */
+    public function getValidUnsentOrderStatuses()
+    {
+        return explode(',', Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/valid_unsent_order_statuses'));
     }
 
     /**

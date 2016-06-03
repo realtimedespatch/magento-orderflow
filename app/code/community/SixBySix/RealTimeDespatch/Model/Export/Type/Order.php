@@ -8,7 +8,7 @@ class SixBySix_RealTimeDespatch_Model_Export_Type_Order extends SixBySix_RealTim
     /**
      * {@inheritdoc}
      */
-    public function updateEntities($lines)
+    public function updateEntities($lines, \DateTime $exportedAt)
     {
         $failureIds = array();
         $tx         = Mage::getModel('core/resource_transaction');
@@ -17,7 +17,7 @@ class SixBySix_RealTimeDespatch_Model_Export_Type_Order extends SixBySix_RealTim
             $order = $line->getEntityInstance();
 
             if ($line->isSuccess()) {
-                $tx->addObject($order->export());
+                $tx->addObject($order->export($exportedAt));
             } else {
                 $failureIds[] = $order->getId();
                 $tx->addObject($order->setExportFailures($order->getExportFailures() + 1));

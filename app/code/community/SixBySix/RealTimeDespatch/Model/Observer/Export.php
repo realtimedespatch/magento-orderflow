@@ -24,6 +24,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Export
         $report      = $event->getReport();
         $reportLines = $report->getLines();
         $export      = $this->_createExport($report);
+        $exportedAt  = $event['exportedAt'];
 
         $export->setRequestBody($event['requestBody']);
         $export->setResponseBody($event['responseBody']);
@@ -46,7 +47,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Export
 
         $tx->save();
 
-        $export->updateEntities();
+        $export->updateEntities($exportedAt);
     }
 
     /**

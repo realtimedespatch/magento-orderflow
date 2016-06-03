@@ -32,10 +32,16 @@ class SixBySix_RealTimeDespatch_Model_Inventory_Stock_Item_Api_V2 extends Mage_A
         $tx->addObject($request);
 
         foreach ($productSeqs as $index => $seq) {
+            $body = $productQtys[$index];
+
+            if ($seq->lastOrderExported) {
+                $body->lastOrderExported = $seq->lastOrderExported;
+            }
+
             $requestLine = $this->_createRequestLine(
                 $request,
                 $seq->value,
-                json_encode($productQtys[$index])
+                json_encode($body)
             );
 
             $tx->addObject($requestLine);

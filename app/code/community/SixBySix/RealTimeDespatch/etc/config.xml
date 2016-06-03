@@ -51,7 +51,7 @@
                     <import_lines_grid_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_import_lines_grid</class>
-                        <method>addOrderIdColumn</method>
+                        <method>addAdditionalColumns</method>
                     </import_lines_grid_observer>
                 </observers>
             </adminhtml_orderflow_import_lines_grid_prepare_columns>
@@ -265,6 +265,7 @@
                 <cron_expr></cron_expr>
                 <batch_size>100</batch_size>
                 <negative_qtys_enabled>0</negative_qtys_enabled>
+                <calculate_adjustments>0</calculate_adjustments>
             </inventory_import>
             <admin_info>
                 <is_enabled>1</is_enabled>

@@ -1,34 +1,30 @@
 <?php
 
-use \SixBySix\RealtimeDespatch\Entity\OrderCollection as RTDOrderCollection;
-use \SixBySix\RealtimeDespatch\Entity\Order as RTDOrder;
-use \SixBySix\RealtimeDespatch\Entity\Product as RTDProduct;
-use SixBySix\RealtimeDespatch\Entity\DeliveryAddress as RTDDeliveryAddress;
-use SixBySix\RealtimeDespatch\Entity\InvoiceAddress as RTDInvoiceAddress;
-use SixBySix\RealtimeDespatch\Entity\OrderLine as RTDOrderLine;
-use SixBySix\RealtimeDespatch\Entity\Shipment as RTDShipment;
-
 /**
- * Orders Mapper.
- *
- * Maps between Magento and Real Time Order Models.
+ * Abstract Mapper.
  */
-class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abstract
+abstract class SixBySix_RealTimeDespatch_Model_Mapper extends Mage_Core_Helper_Abstract
 {
+    /**
+     * Mapped At Timestamp.
+     *
+     * @var string
+     */
+    protected $_mappedAt;
+
     /**
      * Encodes a Magento Order Collection.
      *
      * @param Mage_Sales_Model_Resource_Order_Collection $orders
-     * @param \DateTime                                  $exportedAt
      *
      * @return RTDProductCollection
      */
-    public function encode(Mage_Sales_Model_Resource_Order_Collection $orders, \DateTime $exportedAt)
+    public function encode(Mage_Sales_Model_Resource_Order_Collection $orders)
     {
         $encodedOrders = new RTDOrderCollection;
 
         foreach ($orders as $order) {
-            $encodedOrders[] = $this->_encodeOrder($order, $exportedAt);
+            $encodedOrders[] = $this->_encodeOrder($order);
         }
 
         return $encodedOrders;
@@ -38,11 +34,10 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
      * Encodes a single Magento Order.
      *
      * @param Mage_Sales_Model_Order $order
-     * @param DateTime               $exportedAt
      *
      * @return RTDOrder
      */
-    protected function _encodeOrder(Mage_Sales_Model_Order $order, \DateTime $exportedAt)
+    protected function _encodeOrder(Mage_Sales_Model_Order $order)
     {
         $encodedOrder  = new RTDOrder;
         $customMapping = Mage::getConfig()->getNode('rtd_mappings/order');
@@ -50,8 +45,6 @@ class SixBySix_RealTimeDespatch_Model_Mapper_Orders extends Mage_Core_Helper_Abs
         foreach ($customMapping->asArray() as $magentoKey => $rtdKey) {
             $encodedOrder->setParam($rtdKey, $order->{'get'.$magentoKey}());
         }
-
-        $encodedOrder->setParam('exported', str_replace(' ','T', $exportedAt->format("Y-m-d H:i:s")));
 
         $this->_encodeShippingAddress(
             $encodedOrder,
