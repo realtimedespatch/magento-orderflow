@@ -316,7 +316,7 @@
                         </valid_unsent_order_statuses>
                         <active_quote_cutoff translate="label">
                             <label>Active Quote Cutoff</label>
-                            <comment>The number of days to consider active quotes as valid. Quotes prior to this cutoff will not be utilised within inventory calculations.</comment>
+                            <comment>The number of days for which active quotes will be considered when calculating product inventory. Adjustments will only be applied for quotes created on or after this cutoff.</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>7</sort_order>
                             <validate>validate-number</validate>
@@ -329,7 +329,7 @@
                         </active_quote_cutoff>
                         <unsent_order_cutoff translate="label">
                             <label>Unsent Order Cutoff</label>
-                            <comment>The number of days to consider unsent orders as valid. Orders prior to this cutoff will not be utilised within inventory calculations.</comment>
+                            <comment>The number of days for which unsent orders will be considered when calculating product inventory. Adjustments will only be applied for orders submitted on or after this cutoff.</comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>8</sort_order>
                             <validate>validate-number</validate>
