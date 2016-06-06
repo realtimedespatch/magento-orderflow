@@ -313,7 +313,33 @@
                             <depends>
                                 <is_enabled>1</is_enabled>
                             </depends>                             
-                        </valid_unsent_order_statuses>                                             
+                        </valid_unsent_order_statuses>
+                        <active_quote_cutoff translate="label">
+                            <label>Active Quote Cutoff</label>
+                            <comment>The number of days to consider active quotes as valid. Quotes prior to this cutoff will not be utilised within inventory calculations.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <validate>validate-number</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                        </active_quote_cutoff>
+                        <unsent_order_cutoff translate="label">
+                            <label>Unsent Order Cutoff</label>
+                            <comment>The number of days to consider unsent orders as valid. Orders prior to this cutoff will not be utilised within inventory calculations.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <validate>validate-number</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                        </unsent_order_cutoff>
                     </fields>
                 </inventory_import>
                 <shipment_import>

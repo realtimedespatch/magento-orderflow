@@ -93,6 +93,46 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
     }
 
     /**
+     * Retrieves the active quote cutoff in days.
+     *
+     * @return boolean
+     */
+    public function getActiveQuoteCutoff()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/active_quote_cutoff');
+    }
+
+    /**
+     * Retrieves the active quote cutoff date.
+     *
+     * @return boolean
+     */
+    public function getActiveQuoteCutoffDate()
+    {
+        return date('Y-m-d H:i:s', strtotime('-'.$this->getActiveQuoteCutoff().' days'));
+    }
+
+    /**
+     * Retrieves the unsent order cutoff in days.
+     *
+     * @return boolean
+     */
+    public function getUnsentOrderCutoff()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/unsent_order_cutoff');
+    }
+
+    /**
+     * Retrieves the unsent order cutoff date.
+     *
+     * @return boolean
+     */
+    public function getUnsentOrderCutoffDate()
+    {
+        return date('Y-m-d H:i:s', strtotime('-'.$this->getUnsentOrderCutoff().' days'));
+    }
+
+    /**
      * Disables the inventory import cron process.
      *
      * @return void

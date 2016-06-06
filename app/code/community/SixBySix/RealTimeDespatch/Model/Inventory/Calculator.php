@@ -63,13 +63,16 @@ class SixBySix_RealTimeDespatch_Model_Inventory_Calculator
             return 0;
         }
 
+        // Cutoff Date
+        $cutoffDate = $this->_helper->getUnsentOrderCutoffDate();
+
+        // Calculate
         $resource     = Mage::getSingleton('core/resource');
         $conn         = $resource->getConnection('core_read');
         $sfo          = $resource->getTableName('sales_flat_order');
         $sfoi         = $resource->getTableName('sales_flat_order_item');
-        $sql          = "SELECT SUM(qty_ordered) AS qty_unsent FROM ".$sfo." AS sfo INNER JOIN ".$sfoi." AS sfoi ON sfo.entity_id = sfoi.order_id WHERE (sfo.status IN ('".implode("','", $this->_helper->getValidUnsentOrderStatuses())."')) AND (sfo.is_virtual = 0) AND ((sfo.is_exported = 0) OR (sfo.exported_at > ?)) AND (sfoi.product_id = ?) GROUP BY sfoi.product_id";
-        Mage::log($sql);
-        $unsentUnits  = (integer) $conn->fetchOne($sql, array($inventoryLastCalculated->format('Y-m-d H:i:s'), $productId));
+        $sql          = "SELECT SUM(qty_ordered) AS qty_unsent FROM ".$sfo." AS sfo INNER JOIN ".$sfoi." AS sfoi ON sfo.entity_id = sfoi.order_id WHERE (sfo.status IN ('".implode("','", $this->_helper->getValidUnsentOrderStatuses())."')) AND (sfo.is_virtual = 0) AND (sfo.updated_at > ?) AND ((sfo.is_exported = 0) OR (sfo.exported_at > ?)) AND (sfoi.product_id = ?) GROUP BY sfoi.product_id";
+        $unsentUnits  = (integer) $conn->fetchOne($sql, array($cutoffDate, $inventoryLastCalculated->format('Y-m-d H:i:s'), $productId));
 
         return max(0, $unsentUnits);
     }
@@ -89,12 +92,16 @@ class SixBySix_RealTimeDespatch_Model_Inventory_Calculator
             return 0;
         }
 
+        // Cutoff Date
+        $cutoffDate = $this->_helper->getActiveQuoteCutoffDate();
+
+        // Calculate
         $resource     = Mage::getSingleton('core/resource');
         $conn         = $resource->getConnection('core_read');
         $sfq          = $resource->getTableName('sales_flat_quote');
         $sfqi         = $resource->getTableName('sales_flat_quote_item');
-        $sql          = "SELECT SUM(qty) AS qty_active FROM ".$sfq." AS sfq INNER JOIN ".$sfqi." AS sfqi ON sfq.entity_id = sfqi.quote_id WHERE (sfq.is_active = 1) AND (sfqi.product_id = ?) GROUP BY sfqi.product_id";
-        $activeUnits  = (integer) $conn->fetchOne($sql, array($productId));
+        $sql          = "SELECT SUM(qty) AS qty_active FROM ".$sfq." AS sfq INNER JOIN ".$sfqi." AS sfqi ON sfq.entity_id = sfqi.quote_id WHERE (sfq.is_active = 1) AND (sfqi.product_id = ?) AND (sfq.updated_at > ?) GROUP BY sfqi.product_id";
+        $activeUnits  = (integer) $conn->fetchOne($sql, array($productId, $cutoffDate));
 
         return max(0, $activeUnits);
     }
