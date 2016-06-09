@@ -45,4 +45,4 @@ The extension is provided 'as is' and is provided to Magento software houses and
 
 <h3>Author</h3>
 
-<p>The author/maintainer of the extension up to its current release (1.0.0.30) is <a href="http://www.sixbysix.co.uk">Six By Six</a></p>
+<p>The author/maintainer of the extension up to its current release (1.0.0.37) is <a href="http://www.sixbysix.co.uk">Six By Six</a></p>
