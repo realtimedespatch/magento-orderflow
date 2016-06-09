@@ -10,7 +10,7 @@ interface SixBySix_RealTimeDespatch_Model_Interface_Exportable
      *
      * @return mixed
      */
-    public function export();
+    public function export(\DateTime $exportedAt = null);
 
     /**
      * Returns the export reference.

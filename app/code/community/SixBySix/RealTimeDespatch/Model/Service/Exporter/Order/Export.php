@@ -35,7 +35,10 @@ class SixBySix_RealTimeDespatch_Model_Service_Exporter_Order_Export extends SixB
     public function _export($entities)
     {
         return $this->_service->importOrders(
-            $this->getMapper()->encode($entities)
+            $this->getMapper()->encode(
+                $entities,
+                $this->_exportedAt
+            )
         );
     }
 }

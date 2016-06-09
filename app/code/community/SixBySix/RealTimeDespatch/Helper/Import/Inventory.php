@@ -49,7 +49,87 @@ class SixBySix_RealTimeDespatch_Helper_Import_Inventory extends Mage_Core_Helper
      */
     public function isNegativeQtyEnabled()
     {
-        return (boolean) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/negative_qtys_enabled');
+        return Mage::getStoreConfigFlag('sixbysix_realtimedespatch/inventory_import/negative_qtys_enabled');
+    }
+
+    /**
+     * Checks whether adjustments are to be calculated, and applied.
+     *
+     * @return boolean
+     */
+    public function isInventoryAdjustmentEnabled()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/adjust_inventory') !== 0;
+    }
+
+    /**
+     * Checks whether adjustments are to be calculated for unsent orders.
+     *
+     * @return boolean
+     */
+    public function isUnsentOrderAdjustmentEnabled()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/adjust_inventory') > 0;
+    }
+
+    /**
+     * Checks whether adjustments are to be calculated for active quotes.
+     *
+     * @return boolean
+     */
+    public function isActiveQuoteAdjustmentEnabled()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/adjust_inventory') > 1;
+    }
+
+    /**
+     * Returns the valid unsent order statuses.
+     *
+     * @return array
+     */
+    public function getValidUnsentOrderStatuses()
+    {
+        return explode(',', Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/valid_unsent_order_statuses'));
+    }
+
+    /**
+     * Retrieves the active quote cutoff in days.
+     *
+     * @return boolean
+     */
+    public function getActiveQuoteCutoff()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/active_quote_cutoff');
+    }
+
+    /**
+     * Retrieves the active quote cutoff date.
+     *
+     * @return boolean
+     */
+    public function getActiveQuoteCutoffDate()
+    {
+        return date('Y-m-d H:i:s', strtotime('-'.$this->getActiveQuoteCutoff().' days'));
+    }
+
+    /**
+     * Retrieves the unsent order cutoff in days.
+     *
+     * @return boolean
+     */
+    public function getUnsentOrderCutoff()
+    {
+        return (integer) Mage::getStoreConfig('sixbysix_realtimedespatch/inventory_import/unsent_order_cutoff');
+    }
+
+    /**
+     * Retrieves the unsent order cutoff date.
+     *
+     * @return boolean
+     */
+    public function getUnsentOrderCutoffDate()
+    {
+        return date('Y-m-d H:i:s', strtotime('-'.$this->getUnsentOrderCutoff().' days'));
     }
 
     /**

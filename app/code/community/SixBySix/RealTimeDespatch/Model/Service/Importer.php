@@ -89,7 +89,13 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Importer
     {
         $report->setSuccesses($report->getSuccesses() + 1);
 
-        return $this->_createReportLine($reference, $sequenceId, $message, 'Success');
+        return $this->_createReportLine(
+            $reference,
+            $sequenceId,
+            $message,
+            'Success',
+            $report->additionalData
+        );
     }
 
     /**
@@ -136,19 +142,20 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Importer
      *
      * @return Varien_Object
      */
-    protected function _createReportLine($reference, $sequenceId, $message, $result)
+    protected function _createReportLine($reference, $sequenceId, $message, $result, $additionalData = array())
     {
         $this->_processedIds[$sequenceId] = $sequenceId;
 
         return new Varien_Object(array(
-            'reference'  => $reference,
-            'sequenceId' => $sequenceId,
-            'message'    => $message,
-            'detail'     => $message,
-            'result'     => $result,
-            'operation'  => 'Update',
-            'entity'     => $this->_getEntity(),
-            'timestamp'  => date('Y-m-d H:i:s')
+            'reference'      => $reference,
+            'sequenceId'     => $sequenceId,
+            'message'        => $message,
+            'detail'         => $message,
+            'result'         => $result,
+            'operation'      => 'Update',
+            'entity'         => $this->_getEntity(),
+            'timestamp'      => date('Y-m-d H:i:s'),
+            'additionalData' => $additionalData
         ));
     }
 

@@ -15,6 +15,13 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Exporter
     protected $_service;
 
     /**
+     * Exported At.
+     *
+     * @var DateTime
+     */
+    protected $_exportedAt;
+
+    /**
      * RTD Service.
      *
      * @param \SixBySix\RealtimeDespatch\Service\AbstractService $service
@@ -42,7 +49,8 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Exporter
 
         try
         {
-            $report = $this->_export($entities);
+            $this->_exportedAt = new \DateTime;
+            $report            = $this->_export($entities);
 
             $this->_dispatchEvent(
                 'rtd_export_success',
@@ -51,6 +59,7 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Exporter
                     'requestBody'  => $this->_service->getLastRequestBody(),
                     'responseBody' => $this->_service->getLastResponseBody(),
                     'isManual'     => $isManual,
+                    'exportedAt'   => $this->_exportedAt,
                 )
             );
 

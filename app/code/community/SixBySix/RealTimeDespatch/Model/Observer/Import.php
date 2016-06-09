@@ -82,6 +82,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Import
         $importLine->setMessage($reportLine->getMessage());
         $importLine->setDetail($reportLine->getDetail());
         $importLine->setProcessed($reportLine->getTimestamp());
+        $importLine->setAdditionalData(json_encode($reportLine['additionalData']));
 
         return $importLine;
     }

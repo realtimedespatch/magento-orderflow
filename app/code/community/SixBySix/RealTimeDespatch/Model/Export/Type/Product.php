@@ -8,7 +8,7 @@ class SixBySix_RealTimeDespatch_Model_Export_Type_Product extends SixBySix_RealT
     /**
      * {@inheritdoc}
      */
-    public function updateEntities($lines)
+    public function updateEntities($lines, \DateTime $exportedAt)
     {
         $successIds  = array();
         $failureIds  = array();
@@ -27,7 +27,7 @@ class SixBySix_RealTimeDespatch_Model_Export_Type_Product extends SixBySix_RealT
             }
         }
 
-        $this->_updateSuccessfulImports($successIds);
+        $this->_updateSuccessfulImports($successIds, $exportedAt);
 
         if (count($failureIds) > 0) {
             $this->_updateFailedImports($failureIds);
@@ -38,13 +38,14 @@ class SixBySix_RealTimeDespatch_Model_Export_Type_Product extends SixBySix_RealT
     /**
      * Updates the orders that have successfully exported.
      *
-     * @param array $successIds
+     * @param array    $successIds
+     * @param DateTime $exportedAt
      *
      * @return void
      */
-    protected function _updateSuccessfulImports($successIds)
+    protected function _updateSuccessfulImports($successIds, \DateTime $exportedAt)
     {
-        $successData = array('is_exported' => 1, 'exported_at' => date('Y-m-d H:i:s'), 'export_failures' => 0);
+        $successData = array('is_exported' => 1, 'exported_at' => $exportedAt->format('Y-m-d H:i:s'), 'export_failures' => 0);
 
         Mage::getSingleton('catalog/product_action')->updateAttributes(
             $successIds,

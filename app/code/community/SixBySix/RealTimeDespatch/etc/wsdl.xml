@@ -22,6 +22,7 @@
                 <all>
                     <element name="key" type="xsd:string" minOccurs="1" maxOccurs="1" />
                     <element name="value" type="xsd:long" minOccurs="1" maxOccurs="1" />
+                    <element name="lastOrderExported" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
                 </all>
             </complexType>
             <complexType name="skuSeqArray">
