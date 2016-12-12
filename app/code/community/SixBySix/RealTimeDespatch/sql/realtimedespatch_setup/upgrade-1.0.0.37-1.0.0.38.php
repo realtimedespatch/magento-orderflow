@@ -10,7 +10,7 @@ $connection = $installer->getConnection();
 $connection->addIndex(
     $installer->getTable('sales/order'),
     $installer->getIdxName(
-        'realtimedespatch/rtd_imports',
+        'sales/order',
         array('is_virtual', 'exported_at', 'is_exported', 'updated_at', 'status'),
         Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
     ),
@@ -29,7 +29,7 @@ $connection->modifyColumn(
 $connection->addIndex(
     $installer->getTable('realtimedespatch/import_line'),
     $installer->getIdxName(
-        'realtimedespatch/rtd_imports',
+        'realtimedespatch/import_line',
         array('sequence_id'),
         Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
     ),
@@ -40,7 +40,7 @@ $connection->addIndex(
 $connection->addIndex(
     $installer->getTable('realtimedespatch/import_line'),
     $installer->getIdxName(
-        'realtimedespatch/rtd_imports',
+        'realtimedespatch/import_line',
         array('reference'),
         Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
     ),
@@ -51,7 +51,7 @@ $connection->addIndex(
 $connection->addIndex(
     $installer->getTable('realtimedespatch/import_line'),
     $installer->getIdxName(
-        'realtimedespatch/rtd_imports',
+        'realtimedespatch/import_line',
         array('reference', 'processed'),
         Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
     ),
@@ -62,10 +62,10 @@ $connection->addIndex(
 $connection->addIndex(
     $installer->getTable('realtimedespatch/import_line'),
     $installer->getIdxName(
-        'realtimedespatch/rtd_imports',
-        array('reference', 'processed', 'sequenced_id'),
+        'realtimedespatch/import_line',
+        array('reference', 'processed', 'sequence_id'),
         Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
     ),
-    array('reference', 'processed', 'sequenced_id'),
+    array('reference', 'processed', 'sequence_id'),
     Varien_Db_Adapter_Interface::INDEX_TYPE_INDEX
 );
