@@ -1,7 +1,7 @@
 # magento-orderflow
 Magento extension for integrating with RTD OrderFlow 
 
-In progress documentation at http://www.sixbysix.co.uk/realtime-despatch-orderflow-extension
+The latest OrderFlow Magento Integration documentation is available at https://documentation.realtimedespatch.co.uk/html/OrderFlowMagentoIntegration/index.html
 
 <br />
 <h2>Installation instructions:</h2>
