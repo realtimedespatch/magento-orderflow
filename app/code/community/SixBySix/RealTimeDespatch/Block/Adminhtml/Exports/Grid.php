@@ -61,7 +61,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Exports_Grid extends Mage_Adminh
         ));
 
         $this->addColumn('reference', array(
-            'header'   => Mage::helper('realtimedespatch')->__($this->getReferenceLabel()),
+            'header'   => Mage::helper('realtimedespatch')->__('Total Lines'),
             'align'    => 'left',
             'index'    => 'reference',
             'renderer' => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Total_Exports(),

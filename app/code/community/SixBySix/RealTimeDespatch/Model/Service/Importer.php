@@ -65,6 +65,7 @@ abstract class SixBySix_RealTimeDespatch_Model_Service_Importer
     {
         $report = new Varien_Object;
 
+        $report->setMessageId($request->getMessageId());
         $report->setType($this->_getType());
         $report->setEntityType($this->_getEntity());
         $report->setRequestId($request->getId());

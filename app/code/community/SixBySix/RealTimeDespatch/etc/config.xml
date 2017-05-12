@@ -2,7 +2,7 @@
 <config>
     <modules>
         <SixBySix_RealTimeDespatch>
-            <version>1.0.0.38</version>
+            <version>1.0.0.39</version>
         </SixBySix_RealTimeDespatch>
     </modules>
     <admin>
@@ -38,7 +38,7 @@
                 </observers>
             </adminhtml_sales_order_grid_prepare_massaction>
             <adminhtml_sales_order_grid_prepare_columns>
-               <observers>
+                <observers>
                     <order_grid_observer>
                         <type>singleton</type>
                         <class>realtimedespatch/observer_order_grid</class>
@@ -46,6 +46,15 @@
                     </order_grid_observer>
                 </observers>
             </adminhtml_sales_order_grid_prepare_columns>
+            <adminhtml_enterprise_rma_grid_prepare_columns>
+                <observers>
+                    <rma_grid_observer>
+                        <type>singleton</type>
+                        <class>realtimedespatch/observer_rma_grid</class>
+                        <method>addExportColumn</method>
+                    </rma_grid_observer>
+                </observers>
+            </adminhtml_enterprise_rma_grid_prepare_columns>
             <adminhtml_orderflow_import_lines_grid_prepare_columns>
                 <observers>
                     <import_lines_grid_observer>
@@ -73,6 +82,15 @@
                     </product_grid_observer>
                 </observers>
             </eav_collection_abstract_load_before>
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <rma_grid_observer>
+                        <type>singleton</type>
+                        <class>realtimedespatch/observer_rma_grid</class>
+                        <method>addExportButton</method>
+                    </rma_grid_observer>
+                </observers>
+            </adminhtml_widget_container_html_before>
         </events>
         <layout>
             <updates>
@@ -136,6 +154,11 @@
                     <entity_attribute_backend_time_updated>SixBySix_RealTimeDespatch_Model_Entity_Attribute_Backend_Time_Updated</entity_attribute_backend_time_updated>
                 </rewrite>
             </eav>
+            <enterprise_rma>
+                <rewrite>
+                    <rma>SixBySix_RealTimeDespatch_Model_Enterprise_Rma</rma>
+                </rewrite>
+            </enterprise_rma>
         </models>
         <helpers>
             <realtimedespatch>
@@ -158,6 +181,11 @@
                     <catalog_product_edit_tab_attributes>SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Edit_Tab_Attributes</catalog_product_edit_tab_attributes>
                 </rewrite>
             </adminhtml>
+            <enterprise_rma>
+                <rewrite>
+                    <adminhtml_rma_grid>SixBySix_RealTimeDespatch_Block_Adminhtml_Enterprise_Rma_Grid</adminhtml_rma_grid>
+                </rewrite>
+            </enterprise_rma>
         </blocks>
         <resources>
             <realtimedespatch_setup>
@@ -245,30 +273,46 @@
             </api_config>
             <product_export>
                 <is_enabled>0</is_enabled>
-                <cron_expr></cron_expr>
+                <cron_expr>* * * * *</cron_expr>
                 <batch_size>100</batch_size>
             </product_export>
+            <return_export>
+                <is_enabled>0</is_enabled>
+                <cron_expr>* * * * *</cron_expr>
+                <site></site>
+                <batch_size>100</batch_size>
+            </return_export>
             <order_export>
                 <is_enabled>0</is_enabled>
                 <is_discount_enabled>0</is_discount_enabled>
-                <cron_expr></cron_expr>
+                <cron_expr>* * * * *</cron_expr>
                 <batch_size>100</batch_size>
                 <exportable_order_statuses>processing</exportable_order_statuses>
             </order_export>
             <shipment_import>
                 <is_enabled>0</is_enabled>
-                <cron_expr></cron_expr>
+                <cron_expr>* * * * *</cron_expr>
                 <batch_size>100</batch_size>
             </shipment_import>
             <inventory_import>
                 <is_enabled>0</is_enabled>
-                <cron_expr></cron_expr>
+                <cron_expr>* * * * *</cron_expr>
                 <batch_size>100</batch_size>
                 <negative_qtys_enabled>0</negative_qtys_enabled>
                 <calculate_adjustments>0</calculate_adjustments>
                 <active_quote_cutoff>1</active_quote_cutoff>
                 <unsent_order_cutoff>14</unsent_order_cutoff>
             </inventory_import>
+            <return_import>
+                <is_enabled>0</is_enabled>
+                <cron_expr>* * * * *</cron_expr>
+                <batch_size>100</batch_size>
+                <reference_type>0</reference_type>
+            </return_import>
+            <log_cleaning>
+                <cron_expr>* * * * *</cron_expr>
+                <return_duration>0</return_duration>
+            </log_cleaning>
             <admin_info>
                 <is_enabled>1</is_enabled>
             </admin_info>
@@ -286,6 +330,11 @@
                     <model>realtimedespatch/observer_cron::executeOrderExport</model>
                 </run>
             </orderflow_order_export>
+            <orderflow_return_export>
+                <run>
+                    <model>realtimedespatch/observer_cron::executeReturnExport</model>
+                </run>
+            </orderflow_return_export>
             <orderflow_shipment_import>
                 <run>
                     <model>realtimedespatch/observer_cron::executeShipmentImport</model>
@@ -296,11 +345,26 @@
                     <model>realtimedespatch/observer_cron::executeInventoryImport</model>
                 </run>
             </orderflow_inventory_import>
+            <orderflow_return_import>
+                <run>
+                    <model>realtimedespatch/observer_cron::executeReturnImport</model>
+                </run>
+            </orderflow_return_import>
+            <orderflow_return_import>
+                <run>
+                    <model>realtimedespatch/observer_cron::executeReturnImport</model>
+                </run>
+            </orderflow_return_import>
             <orderflow_log_cleaning>
                 <run>
                     <model>realtimedespatch/observer_cron::executeLogCleaning</model>
                 </run>
             </orderflow_log_cleaning>
+            <orderflow_return_closure>
+                <run>
+                    <model>realtimedespatch/observer_cron::executeReturnClosure</model>
+                </run>
+            </orderflow_return_closure>
         </jobs>
     </crontab>
     <rtd_mappings>
@@ -355,13 +419,21 @@
             <ShippingMethod>deliverySuggestionCode</ShippingMethod>
             <ShippingDescription>deliverySuggestionName</ShippingDescription>
         </order_shipment>
+        <return>
+            <IncrementId>externalReference</IncrementId>
+            <IsAuthorised>authorised</IsAuthorised>
+        </return>
+        <return_item>
+            <ProductSku>product</ProductSku>
+            <QtyAuthorized>quantity</QtyAuthorized>
+            <Reason>reason</Reason>
+        </return_item>
         <delivery_address>
             <Street1>addressLine1</Street1>
             <Street2>addressLine2</Street2>
             <Street3>addressLine3</Street3>
-            <Street4>addressLine4</Street4>
-            <City>addressLine5</City>
-            <Region>addressLine6</Region>
+            <City>addressLine4</City>
+            <Region>addressLine5</Region>
             <Postcode>postCode</Postcode>
             <Company>companyName</Company>
             <Name>contactName</Name>
@@ -376,9 +448,8 @@
             <Street1>addressLine1</Street1>
             <Street2>addressLine2</Street2>
             <Street3>addressLine3</Street3>
-            <Street4>addressLine4</Street4>
-            <City>addressLine5</City>
-            <Region>addressLine6</Region>
+            <City>addressLine4</City>
+            <Region>addressLine5</Region>
             <Postcode>postCode</Postcode>
             <Company>companyName</Company>
             <Name>contactName</Name>

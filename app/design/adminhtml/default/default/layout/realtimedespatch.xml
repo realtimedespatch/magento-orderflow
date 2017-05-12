@@ -33,6 +33,16 @@
             <block type="realtimedespatch/adminhtml_exports_view" name="view" />
         </reference>
     </adminhtml_orderexports_view>
+    <adminhtml_returnexports_index>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_exports" name="exports" />
+        </reference>
+    </adminhtml_returnexports_index>
+    <adminhtml_returnexports_view>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_exports_view" name="view" />
+        </reference>
+    </adminhtml_returnexports_view>    
     <adminhtml_shipmentimports_index>
         <reference name="content">
             <block type="realtimedespatch/adminhtml_imports" name="imports" />
@@ -53,6 +63,16 @@
             <block type="realtimedespatch/adminhtml_imports_view" name="view" />
         </reference>
     </adminhtml_inventoryimports_view>
+    <adminhtml_returnimports_index>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_imports" name="imports" />
+        </reference>
+    </adminhtml_returnimports_index>
+    <adminhtml_returnimports_view>
+        <reference name="content">
+            <block type="realtimedespatch/adminhtml_imports_view" name="view" />
+        </reference>
+    </adminhtml_returnimports_view>    
     <adminhtml_requests_index>
         <reference name="content">
             <block type="realtimedespatch/adminhtml_requests" name="requests" />

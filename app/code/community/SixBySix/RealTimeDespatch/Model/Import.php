@@ -145,20 +145,18 @@ class SixBySix_RealTimeDespatch_Model_Import extends Mage_Core_Model_Abstract
      */
     public function setMessageIdFromRequestBody($requestBody = null)
     {
-        if ( ! $requestBody) {
+        if ( ! $requestBody || $this->getEntity() == 'Return') {
             return;
         }
 
-        try
-        {
+        try {
             $dom = new \DOMDocument;
             $dom->loadXML($requestBody);
             $xml = $dom->getElementsByTagName('messageSeqId');
             $xml = $xml->item(0)->nodeValue;
             $this->setMessageId($xml);
         }
-        catch (\Exception $ex)
-        {
+        catch (\Exception $ex) {
             $xml = 'Unavailable';
         }
     }

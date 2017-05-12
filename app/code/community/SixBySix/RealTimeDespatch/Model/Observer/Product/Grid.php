@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Product Gridg Observer.
+ * Product Grid Observer.
  */
 class SixBySix_RealTimeDespatch_Model_Observer_Product_Grid
 {

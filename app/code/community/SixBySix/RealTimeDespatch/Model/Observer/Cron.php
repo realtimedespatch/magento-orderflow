@@ -48,6 +48,27 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron
     }
 
     /**
+     * Executes the Return Export Service.
+     *
+     * @param mixed $event
+     *
+     * @return void
+     */
+    public function executeReturnExport($event)
+    {
+        $returns = Mage::helper('realtimedespatch/export_return')->getExportableReturns();
+
+        if (count($returns) == 0) {
+            return;
+        }
+
+        $factory = Mage::getModel('realtimedespatch/factory_service_exporter');
+        $service = $factory->retrieve(SixBySix_RealTimeDespatch_Model_Factory_Service_Exporter::EXPORTER_RETURN_EXPORT);
+
+        $service->export($returns);
+    }
+
+    /**
      * Executes the Shipment Import Service.
      *
      * @param mixed $event
@@ -94,6 +115,29 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron
     }
 
     /**
+     * Executes the Return Import Service.
+     *
+     * @param mixed $event
+     *
+     * @return void
+     */
+    public function executeReturnImport($event)
+    {
+        $requests = Mage::helper('realtimedespatch/import_return')->getImportableRequests();
+
+        if (count($requests) == 0) {
+            return;
+        }
+
+        $factory = Mage::getModel('realtimedespatch/factory_service_importer');
+        $service = $factory->retrieve(SixBySix_RealTimeDespatch_Model_Factory_Service_Importer::IMPORTER_RETURN);
+
+        foreach ($requests as $request) {
+            $service->import($request);
+        }
+    }
+
+    /**
      * Executes the Log Cleaning Service.
      *
      * @param mixed $event
@@ -103,5 +147,17 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron
     public function executeLogCleaning($event)
     {
         Mage::getModel('realtimedespatch/service_log_cleaner')->clean();
+    }
+
+    /**
+     * Executes the Return Closure Service.
+     *
+     * @param mixed $event
+     *
+     * @return void
+     */
+    public function executeReturnClosure($event)
+    {
+        Mage::getModel('realtimedespatch/service_return_closure')->closeReturns();
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Product Grid  Block.
+ * Product Grid Block.
  */
 class SixBySix_RealTimeDespatch_Block_Adminhtml_Catalog_Product_Grid extends Mage_Adminhtml_Block_Catalog_Product_Grid
 {

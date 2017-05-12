@@ -13,8 +13,10 @@ class SixBySix_RealTimeDespatch_Model_Observer_Cron_Schedule
     protected $_processWhitelist = array(
         'orderflow_shipment_import',
         'orderflow_inventory_import',
+        'orderflow_return_import',
         'orderflow_order_export',
         'orderflow_product_export',
+        'orderflow_return_export',
     );
 
     /**

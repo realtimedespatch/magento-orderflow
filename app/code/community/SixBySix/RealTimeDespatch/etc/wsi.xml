@@ -31,6 +31,20 @@
                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:skuSeq" />
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:complexType name="returnLine">
+                <xsd:sequence>
+                    <xsd:element minOccurs="1" maxOccurs="1" name="product" type="xsd:string" />
+                    <xsd:element minOccurs="1" maxOccurs="1" name="quantity" type="xsd:int" />
+                    <xsd:element minOccurs="1" maxOccurs="1" name="condition" type="xsd:string" />
+                    <xsd:element minOccurs="1" maxOccurs="1" name="note" type="xsd:string" />
+                    <xsd:element minOccurs="1" maxOccurs="1" name="processRefund" type="xsd:int" />
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="returnLineArray">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="complexObjectArray" type="typens:returnLine" />
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:element name="orderflowShipmentCreateRequestParam">
                 <xsd:complexType>
                     <xsd:sequence>
@@ -71,7 +85,24 @@
                         <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
                     </xsd:sequence>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="orderflowReturnUpdateRequestParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="sessionId" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="authorisation" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="orderReference" type="xsd:string" />
+                        <xsd:element minOccurs="1" maxOccurs="1" name="returnLines" type="typens:returnLineArray" />
+                    </xsd:sequence>
+                </xsd:complexType>
             </xsd:element>            
+            <xsd:element name="orderflowReturnUpdateResponseParam">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element minOccurs="1" maxOccurs="1" name="result" type="xsd:string" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:schema>
     </wsdl:types>
     <wsdl:message name="orderflowShipmentCreateRequest">
@@ -85,7 +116,13 @@
     </wsdl:message>
     <wsdl:message name="orderflowInventoryMultiUpdateResponse">
         <wsdl:part name="parameters" element="typens:orderflowInventoryMultiUpdateResponseParam" />
-    </wsdl:message>    
+    </wsdl:message>
+    <wsdl:message name="orderflowReturnUpdateRequest">
+        <wsdl:part name="parameters" element="typens:orderflowReturnUpdateRequestParam" />
+    </wsdl:message>
+    <wsdl:message name="orderflowReturnUpdateResponse">
+        <wsdl:part name="parameters" element="typens:orderflowReturnUpdateResponseParam" />
+    </wsdl:message>
     <wsdl:portType name="{{var wsdl.handler}}PortType">
         <wsdl:operation name="orderflowShipmentCreate">
             <wsdl:documentation>Create new shipment for order</wsdl:documentation>
@@ -96,7 +133,12 @@
             <wsdl:documentation>Multi update product stock data</wsdl:documentation>
             <wsdl:input message="typens:orderflowInventoryMultiUpdateRequest" />
             <wsdl:output message="typens:orderflowInventoryMultiUpdateResponse" />
-        </wsdl:operation>        
+        </wsdl:operation>
+        <wsdl:operation name="orderflowReturnUpdate">
+            <wsdl:documentation>Multi update return data</wsdl:documentation>
+            <wsdl:input message="typens:orderflowReturnUpdateRequest" />
+            <wsdl:output message="typens:orderflowReturnUpdateResponse" />
+        </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
@@ -117,7 +159,16 @@
             <wsdl:output>
                 <soap:body use="literal" />
             </wsdl:output>
-        </wsdl:operation>        
+        </wsdl:operation>
+        <wsdl:operation name="orderflowReturnUpdate">
+            <soap:operation soapAction="" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
     </wsdl:binding>
     <wsdl:service name="{{var wsdl.name}}Service">
         <wsdl:port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">

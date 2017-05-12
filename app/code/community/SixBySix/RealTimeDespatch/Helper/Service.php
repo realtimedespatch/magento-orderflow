@@ -5,6 +5,7 @@ use \SixBySix\RealtimeDespatch\Gateway\Factory\DefaultGatewayFactory;
 
 use \SixBySix\RealtimeDespatch\Service\ProductService;
 use \SixBySix\RealtimeDespatch\Service\OrderService;
+use \SixBySix\RealtimeDespatch\Service\ReturnService;
 
 /**
  * RTD Service Helper.
@@ -54,6 +55,20 @@ class SixBySix_RealTimeDespatch_Helper_Service extends Mage_Core_Helper_Abstract
         $credentials = $this->getCredentials();
         $factory     = new DefaultGatewayFactory();
         $service     = new OrderService($factory->create($credentials));
+
+        return $service;
+    }
+
+    /**
+     * Returns a return service instance.
+     *
+     * @return \SixBySix\RealtimeDespatch\Service\ReturnService
+     */
+    public function getReturnService()
+    {
+        $credentials = $this->getCredentials();
+        $factory     = new DefaultGatewayFactory();
+        $service     = new ReturnService($factory->create($credentials));
 
         return $service;
     }

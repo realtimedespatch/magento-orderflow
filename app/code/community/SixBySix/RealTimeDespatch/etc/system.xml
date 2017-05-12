@@ -41,6 +41,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
                         </admin_name>
                         <admin_email translate="label">
                             <label>Admin Email (for email alerts)</label>
@@ -50,6 +53,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
                         </admin_email>
                     </fields>
                 </general>
@@ -212,6 +218,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
                         </is_discount_enabled>
                         <exportable_order_statuses translate="label">
                             <label>Exportable Order Statuses</label>
@@ -221,6 +230,9 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
                         </exportable_order_statuses>
                         <batch_size translate="label">
                             <label>Batch Size</label>
@@ -236,10 +248,73 @@
                         </batch_size>
                     </fields>
                 </order_export>
+                <return_export>
+                    <label>Return Export</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>500</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_returnExport_cron</backend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                        </cron_expr>
+                        <site translate="label">
+                            <label>Site</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                        </site>
+                        <reference_type>
+                            <label>Return Reference</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>realtimedespatch/adminhtml_system_config_source_return_reference</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </reference_type>
+                        <batch_size translate="label">
+                            <label>Batch Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                            <validate>validate-digits</validate>
+                        </batch_size>
+                    </fields>
+                </return_export>
                 <inventory_import>
                     <label>Inventory Import</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>500</sort_order>
+                    <sort_order>600</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
@@ -345,7 +420,7 @@
                 <shipment_import>
                     <label>Shipment Import</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>600</sort_order>
+                    <sort_order>700</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
@@ -385,10 +460,53 @@
                         </batch_size>
                     </fields>
                 </shipment_import>
-                <log_cleaning>
-                    <label>Log Cleaning</label>
+                <return_import>
+                    <label>Return Import</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>700</sort_order>
+                    <sort_order>800</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <is_enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </is_enabled>
+                        <cron_expr translate="label">
+                            <label>Cron Expression</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>realtimedespatch/adminhtml_system_config_backend_returnImport_cron</backend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                        </cron_expr>
+                        <batch_size translate="label">
+                            <label>Batch Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <is_enabled>1</is_enabled>
+                            </depends>
+                            <validate>validate-digits</validate>
+                        </batch_size>
+                    </fields>
+                </return_import>
+                <log_cleaning>
+                    <label>Maintenance</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>900</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
@@ -420,12 +538,21 @@
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
                         </xml_log_duration>
+                        <return_duration translate="label">
+                            <label>Return Duration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>realtimedespatch/adminhtml_system_config_source_return_duration</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </return_duration>
                     </fields>
                 </log_cleaning>
                 <admin_info>
                     <label>Admin Information</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>800</sort_order>
+                    <sort_order>1000</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>

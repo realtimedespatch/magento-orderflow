@@ -23,12 +23,24 @@
                         <method>multiUpdate</method>
                     </multiUpdate>                    
                 </methods>
-            </orderflow_inventory>            
+            </orderflow_inventory>
+            <orderflow_return>
+                <model>realtimedespatch/enterprise_rma_return_api</model>
+                <title>OrderFlow API</title>
+                <acl>orderflow</acl>
+                <methods>
+                    <update translate="title" module="realtimedespatch">
+                        <title>Update Return Items</title>
+                        <method>update</method>
+                    </update>
+                </methods>
+            </orderflow_return>
         </resources>
         <v2>
             <resources_function_prefix>
                 <orderflow_shipment>orderflowShipment</orderflow_shipment>
                 <orderflow_inventory>orderflowInventory</orderflow_inventory>
+                <orderflow_return>orderflowReturn</orderflow_return>
             </resources_function_prefix>
         </v2>
         <acl>

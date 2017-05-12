@@ -74,6 +74,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_Lines_Grid extends Mage_
             'index'   => 'type',
             'type'    => 'options',
             'options' => array('Success' => 'Success', 'Duplicate' => 'Duplicate', 'Failure' => 'Failure'),
+            'width' => '50px',
         ));
 
         $this->addColumn('message', array(

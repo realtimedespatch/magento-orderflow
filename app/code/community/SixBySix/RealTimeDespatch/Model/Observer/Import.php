@@ -50,6 +50,7 @@ class SixBySix_RealTimeDespatch_Model_Observer_Import
     {
         $import = Mage::getModel('realtimedespatch/import');
 
+        $import->setMessageId($report->getMessageId());
         $import->setType($report->getType());
         $import->setEntity($report->getEntityType());
         $import->setSuccesses($report->getSuccesses());

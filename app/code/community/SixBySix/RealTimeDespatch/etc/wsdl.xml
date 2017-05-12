@@ -31,7 +31,23 @@
                         <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:skuSeq[]" />
                     </restriction>
                 </complexContent>
-            </complexType>                              
+            </complexType>
+            <complexType name="returnLine">
+                <all>
+                    <element name="product" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="quantity" type="xsd:int" minOccurs="1" maxOccurs="1" />
+                    <element name="condition" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="note" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                    <element name="processRefund" type="xsd:int" minOccurs="1" maxOccurs="1" />
+                </all>
+            </complexType>
+            <complexType name="returnLineArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:returnLine[]" />
+                    </restriction>
+                </complexContent>
+            </complexType>
         </schema>
     </types>
     <message name="orderflowShipmentCreateRequest">
@@ -58,7 +74,16 @@
     </message>
     <message name="orderflowInventoryMultiUpdateResponse">
         <part name="result" type="xsd:string"/>
-    </message>    
+    </message>
+    <message name="orderflowReturnUpdateRequest">
+        <part name="sessionId" type="xsd:string"/>
+        <part name="authorisation" type="xsd:string"/>
+        <part name="orderReference" type="xsd:string"/>
+        <part name="returnLines" type="typens:returnLineArray"/>
+    </message>
+    <message name="orderflowReturnUpdateResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
     <portType name="{{var wsdl.handler}}PortType">
         <operation name="orderflowShipmentCreate">
             <documentation>OrderFlow Shipment Creation</documentation>
@@ -69,7 +94,12 @@
             <documentation>OrderFlow Multi Inventory Item Update</documentation>
             <input message="typens:orderflowInventoryMultiUpdateRequest"/>
             <output message="typens:orderflowInventoryMultiUpdateResponse"/>
-        </operation>        
+        </operation>
+        <operation name="orderflowReturnUpdate">
+            <documentation>OrderFlow Multi Return Item Update</documentation>
+            <input message="typens:orderflowReturnUpdateRequest"/>
+            <output message="typens:orderflowReturnUpdateResponse"/>
+        </operation>
     </portType>
     <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
@@ -90,7 +120,16 @@
             <output>
                 <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </output>
-        </operation>        
+        </operation>
+        <operation name="orderflowReturnUpdate">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action"/>
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
     </binding>
     <service name="{{var wsdl.name}}Service">
         <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">

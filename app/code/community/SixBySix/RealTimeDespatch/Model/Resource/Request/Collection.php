@@ -16,6 +16,23 @@ class SixBySix_RealTimeDespatch_Model_Resource_Request_Collection extends SixByS
     }
 
     /**
+     * Returns the last request of a specific type..
+     *
+     * @param string $type
+     *
+     * @return SixBySix_RealTimeDespatch_Model_Resource_Request_Line_Collection
+     */
+    public function getLastRequestWithType($type)
+    {
+        return Mage::getResourceModel('realtimedespatch/request_collection')
+                    ->addFieldToFilter('main_table.type', array('eq' => $type))
+                    ->setOrder('created', 'DESC')
+                    ->setPageSize(1)
+                    ->setCurPage(1)
+                    ->getFirstItem();
+    }
+
+    /**
      * Returns the next processable request of a certain type.
      *
      * @param string $type

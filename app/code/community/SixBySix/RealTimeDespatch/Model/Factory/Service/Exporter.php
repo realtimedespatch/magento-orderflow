@@ -7,6 +7,7 @@ class SixBySix_RealTimeDespatch_Model_Factory_Service_Exporter
 {
     const EXPORTER_PRODUCT_EXPORT = 'ProductExport';
     const EXPORTER_ORDER_EXPORT   = 'OrderExport';
+    const EXPORTER_RETURN_EXPORT  = 'ReturnExport';
 
     /**
      * Retrieves an exporter service.
@@ -26,6 +27,11 @@ class SixBySix_RealTimeDespatch_Model_Factory_Service_Exporter
                     Mage::helper('realtimedespatch/service')->getOrderService()
                 );
             break;
+            case self::EXPORTER_RETURN_EXPORT:
+                return new SixBySix_RealTimeDespatch_Model_Service_Exporter_Return_Export(
+                    Mage::helper('realtimedespatch/service')->getReturnService()
+                );
+                break;
             default:
                 throw new Exception('Invalid Exporter Type');
             break;

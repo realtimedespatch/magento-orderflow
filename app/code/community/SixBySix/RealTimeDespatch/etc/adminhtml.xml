@@ -25,6 +25,10 @@
                             <title>Products</title>
                             <action>adminhtml/productExports</action>
                         </productexports>
+                        <returnexports module="realtimedespatch">
+                            <title>Returns</title>
+                            <action>adminhtml/returnExports</action>
+                        </returnexports>
                     </children>
                 </exports>
                 <imports translate="title" module="realtimedespatch">
@@ -38,6 +42,10 @@
                             <title>Shipments</title>
                             <action>adminhtml/shipmentImports</action>
                         </shipmentimports>
+                        <returnimports module="realtimedespatch">
+                            <title>Returns</title>
+                            <action>adminhtml/returnImports</action>
+                        </returnimports>
                     </children>
                 </imports>
                 <requests module="realtimedespatch">

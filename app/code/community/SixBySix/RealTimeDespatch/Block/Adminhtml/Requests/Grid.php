@@ -80,7 +80,8 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
             'type'    => 'options',
             'options' => array(
                 'Inventory' => Mage::helper('realtimedespatch')->__('Inventory'),
-                'Shipment'  => Mage::helper('realtimedespatch')->__('Shipment')
+                'Shipment'  => Mage::helper('realtimedespatch')->__('Shipment'),
+                'Return'  => Mage::helper('realtimedespatch')->__('Return')
             ),
             'filter_index' => 'main_table.type',
         ));

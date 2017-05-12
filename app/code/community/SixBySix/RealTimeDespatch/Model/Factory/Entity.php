@@ -9,6 +9,7 @@ class SixBySix_RealTimeDespatch_Model_Factory_Entity
     const ENTITY_ORDER     = 'Order';
     const ENTITY_INVENTORY = 'Inventory';
     const ENTITY_SHIPMENT  = 'Shipment';
+    const ENTITY_RETURN    = 'Return';
 
     /**
      * Retrieves an entity.
@@ -29,6 +30,9 @@ class SixBySix_RealTimeDespatch_Model_Factory_Entity
             case self::ENTITY_SHIPMENT:
                 return Mage::getModel('sales/order_shipment')->load($reference, 'increment_id');
             break;
+            case self::ENTITY_RETURN:
+                return Mage::getModel('enterprise_rma/rma')->load($reference, 'increment_id');
+                break;
             default:
                 throw new Exception('Invalid Entity Type');
             break;
@@ -63,6 +67,12 @@ class SixBySix_RealTimeDespatch_Model_Factory_Entity
                     $this->retrieve($type, $reference)
                 );
             break;
+            case self::ENTITY_RETURN:
+                return $this->_retrieveAdminUrl(
+                    Mage::helper('adminhtml')->getUrl('adminhtml/rma/edit/') .'id/',
+                    $this->retrieve($type, $reference)
+                );
+                break;
             default:
                 throw new Exception('Invalid Entity Type');
             break;
