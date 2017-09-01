@@ -30,12 +30,6 @@ class SixBySix_RealTimeDespatch_Model_Observer_Import
             $tx->addObject($requestLine->setProcessed($processed)->setSequenceId(intval($requestLine->sequence_id)));
         }
 
-        if (is_array($event->lines)) {
-            $import->setRequestBody($event->lines[0]->getRequestBody());
-        } else {
-            $import->setRequestBody($event->lines->getFirstItem()->getRequestBody());
-        }
-
         $tx->save();
     }
 
