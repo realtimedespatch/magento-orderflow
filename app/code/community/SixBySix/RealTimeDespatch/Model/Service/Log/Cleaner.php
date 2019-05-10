@@ -33,6 +33,7 @@ class SixBySix_RealTimeDespatch_Model_Service_Log_Cleaner
 
         $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/export')." WHERE DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
         $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/import')." WHERE DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
+        $write->query("DELETE FROM ".$resource->getTableName('realtimedespatch/request_line')." WHERE processed IS NOT NULL AND DATEDIFF( NOW( ) , created ) > ".$write->quote($interval));
     }
 
     /**
