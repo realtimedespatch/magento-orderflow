@@ -25,11 +25,25 @@ Note that the two approaches cannot be used interchangeably, if Composer is used
 
 `Advanced > Developer > Template Settings > Allow Symlinks`
 
+<h3>Magento CE Compatibility</h3>
 
-<h3>Compatibility</h3>
+- Magento 1.6.x
+- Magento 1.7.x
+- Magento 1.8.x
+- Magento 1.9.x
 
-<p>Compatible with Magento CE 1.6, 1.6.1, 1.6.2, 1.7,1.8,1.8.1,1.9,1.9.1 and 
-Magento EE 1.11,1.12,1.13,1.14</p>
+<h3>Magento EE Compatibility</h3>
+
+- Magento 1.11.x
+- Magento 1.12.x
+- Magento 1.13.x
+- Magento 1.14.x
+
+<h3>PHP Compatibility</h3>
+
+- 5.3
+- 5.4
+- 5.5
 
 <h3>Support</h3>
 
