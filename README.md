@@ -17,11 +17,31 @@ Note that the two approaches cannot be used interchangeably, if Composer is used
 
 <h3>via Composer:</h3>
 
-- Drop the composer.json into your magento webroot and run `composer install` with the appropriate user permissions.
+1. Add the following composer.json file to the magento webroot 
 
-- For updates, run `composer update`
+```
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.firegento.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*",
+        "sixbysix/magento-realtime-despatch": "2.0.0",
+        "ajbonner/magento-composer-autoload": "*"
+    },
+    "extra":{
+        "magento-root-dir": "./"
+    },
+    "minimum-stability": "dev"
+}
+```
 
-- Ensure that you have developer symlinks enabled in your admin area:
+2. Execute `composer install` with the appropriate user permissions.
+
+3. Ensure that you have developer symlinks enabled in your admin area:
 
 `Advanced > Developer > Template Settings > Allow Symlinks`
 
