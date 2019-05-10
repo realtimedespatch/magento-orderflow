@@ -8,12 +8,12 @@ There are two options for installing the extension.
 
 Note that the two approaches cannot be used interchangeably, if Composer is used to install the module all subsequent upgrades should also use Composer.
 
-## Manual:
+<h2>Manual</h2>
 
 - Fetch the latest build from http://www.sixbysix.co.uk/orderflow/orderflow.tar.gz and unzip the files under the `orderflow` directory into your Magento installation.
 
 
-## Composer: 
+<h2>Composer</h2>
 
 1. Add the following composer.json file to the magento webroot 
 
@@ -45,21 +45,21 @@ Note that the two approaches cannot be used interchangeably, if Composer is used
 
 # Compatibility
 
-## Magento CE
+<h2>Magento CE</h2>
 
 - Magento 1.6.x
 - Magento 1.7.x
 - Magento 1.8.x
 - Magento 1.9.x
 
-## Magento EE
+<h2>Magento EE</h2>
 
 - Magento 1.11.x
 - Magento 1.12.x
 - Magento 1.13.x
 - Magento 1.14.x
 
-## PHP
+<h2>PHP</h2>
 
 - 5.x (Module Version 1.x)
 - 7.x (Module Version 2.x)
