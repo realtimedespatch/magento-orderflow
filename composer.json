@@ -11,17 +11,13 @@
     ],
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://realtime-despatch-magento-module.codebasehq.com/development/orderflow-api-library.git"
-        },
-        {
             "type": "composer",
-            "url": "http://packages.firegento.com"
+            "url": "https://packages.firegento.com"
         }
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "*",
-        "sixbysix/realtime-despatch": "dev-master",
+        "sixbysix/realtime-despatch": ">=1.1.0",
         "ajbonner/magento-composer-autoload": "*"
     },
     "extra":{

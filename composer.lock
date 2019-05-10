@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0aafa3387cf6015a81b6759bd9302d8e",
+    "content-hash": "921e79530b17034157628933c6f854d5",
     "packages": [
         {
             "name": "ajbonner/magento-composer-autoload",
-            "version": "dev-master",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ajbonner/magento-composer-autoload.git",
-                "reference": "b3930038e006da4a7343f6ef36be10b33cc3e232"
+                "reference": "00376bf4442f737edfdda674b6e11c3486bc6801"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ajbonner/magento-composer-autoload/zipball/b3930038e006da4a7343f6ef36be10b33cc3e232",
-                "reference": "b3930038e006da4a7343f6ef36be10b33cc3e232",
+                "url": "https://api.github.com/repos/ajbonner/magento-composer-autoload/zipball/00376bf4442f737edfdda674b6e11c3486bc6801",
+                "reference": "00376bf4442f737edfdda674b6e11c3486bc6801",
                 "shasum": ""
             },
             "require": {
@@ -36,34 +36,34 @@
             "description": "Extension of Magento's class autoloader making it composer vendor library aware",
             "homepage": "https://github.com/ajbonner/magento-composer-autoload",
             "support": {
-                "source": "https://github.com/ajbonner/magento-composer-autoload/tree/master",
+                "source": "https://github.com/ajbonner/magento-composer-autoload/tree/0.1.2",
                 "issues": "https://github.com/ajbonner/magento-composer-autoload/issues"
             },
-            "time": "2014-11-14 13:34:26"
+            "time": "2018-06-27T11:15:59+00:00"
         },
         {
             "name": "eloquent/composer-config-reader",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/composer-config-reader.git",
-                "reference": "b79319806e1bcc101c89a023b3aeee9e5931e463"
+                "reference": "ee83a1cad8f68508f05b30c376003045a7cdfcd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/composer-config-reader/zipball/b79319806e1bcc101c89a023b3aeee9e5931e463",
-                "reference": "b79319806e1bcc101c89a023b3aeee9e5931e463",
+                "url": "https://api.github.com/repos/eloquent/composer-config-reader/zipball/ee83a1cad8f68508f05b30c376003045a7cdfcd8",
+                "reference": "ee83a1cad8f68508f05b30c376003045a7cdfcd8",
                 "shasum": ""
             },
             "require": {
-                "eloquent/enumeration": "~5",
-                "eloquent/liberator": "~1",
-                "icecave/isolator": "~2",
-                "justinrainbow/json-schema": "~1",
+                "eloquent/enumeration": "^5",
+                "justinrainbow/json-schema": "^4",
                 "php": ">=5.3"
             },
             "require-dev": {
-                "icecave/archer": "~1"
+                "eloquent/liberator": "^2",
+                "eloquent/phony": "0.14.4",
+                "phpunit/phpunit": "^4"
             },
             "type": "library",
             "autoload": {
@@ -90,27 +90,29 @@
                 "parser",
                 "reader"
             ],
-            "time": "2014-01-22 01:05:31"
+            "time": "2017-11-02T01:07:08+00:00"
         },
         {
             "name": "eloquent/enumeration",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/enumeration.git",
-                "reference": "9c50109cf25b2008b9b8233b814e50e0cdf8b737"
+                "reference": "0242859435d9b135939816858348556d3cde9e3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/enumeration/zipball/9c50109cf25b2008b9b8233b814e50e0cdf8b737",
-                "reference": "9c50109cf25b2008b9b8233b814e50e0cdf8b737",
+                "url": "https://api.github.com/repos/eloquent/enumeration/zipball/0242859435d9b135939816858348556d3cde9e3c",
+                "reference": "0242859435d9b135939816858348556d3cde9e3c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
             "require-dev": {
-                "icecave/archer": "~1"
+                "icecave/archer": "dev-develop",
+                "phpunit/phpunit": "^4",
+                "sami/sami": "^3"
             },
             "type": "library",
             "autoload": {
@@ -139,133 +141,50 @@
                 "set",
                 "type"
             ],
-            "time": "2014-03-13 01:16:59"
+            "time": "2015-11-03T22:21:38+00:00"
         },
         {
-            "name": "eloquent/liberator",
-            "version": "1.1.1",
+            "name": "guzzlehttp/psr7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/eloquent/liberator.git",
-                "reference": "a85435066850ab47acc61296c5d20732ff4c9655"
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "a346647434953deb5bd599d92922b2d225e25170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/liberator/zipball/a85435066850ab47acc61296c5d20732ff4c9655",
-                "reference": "a85435066850ab47acc61296c5d20732ff4c9655",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/a346647434953deb5bd599d92922b2d225e25170",
+                "reference": "a346647434953deb5bd599d92922b2d225e25170",
                 "shasum": ""
             },
             "require": {
-                "eloquent/pops": "~3",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "icecave/archer": "~0.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Eloquent\\Liberator": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Erin Millard",
-                    "email": "ezzatron@gmail.com",
-                    "homepage": "http://ezzatron.com/"
-                }
-            ],
-            "description": "A proxy for circumventing PHP access modifier restrictions.",
-            "homepage": "https://github.com/eloquent/liberator",
-            "keywords": [
-                "access",
-                "modifier",
-                "object",
-                "private",
-                "protected",
-                "proxy",
-                "reflection"
-            ],
-            "time": "2013-03-03 23:02:47"
-        },
-        {
-            "name": "eloquent/pops",
-            "version": "3.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/eloquent/pops.git",
-                "reference": "b14090a3478f544d1b3a3b9389cb03415cf4f37f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/pops/zipball/b14090a3478f544d1b3a3b9389cb03415cf4f37f",
-                "reference": "b14090a3478f544d1b3a3b9389cb03415cf4f37f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "icecave/archer": "~0.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Eloquent\\Pops": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Erin Millard",
-                    "email": "ezzatron@gmail.com",
-                    "homepage": "http://ezzatron.com/"
-                }
-            ],
-            "description": "PHP object proxy system.",
-            "homepage": "https://github.com/eloquent/pops",
-            "keywords": [
-                "escaping",
-                "object",
-                "proxy"
-            ],
-            "time": "2013-03-04 10:10:43"
-        },
-        {
-            "name": "icecave/isolator",
-            "version": "2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/IcecaveStudios/isolator.git",
-                "reference": "97c51fafa39c57a8f1a31f978a48fbe6cea4a5d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/isolator/zipball/97c51fafa39c57a8f1a31f978a48fbe6cea4a5d5",
-                "reference": "97c51fafa39c57a8f1a31f978a48fbe6cea4a5d5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "icecave/archer": "~1"
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
             },
             "suggest": {
-                "eloquent/asplode": "Drop-in exception-based error handling."
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "Icecave\\Isolator\\": "src"
-                }
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -273,44 +192,49 @@
             ],
             "authors": [
                 {
-                    "name": "James Harris",
-                    "email": "james.harris@icecave.com.au",
-                    "homepage": "https://github.com/jmalloc"
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
-            "description": "Dependency injection for global functions.",
-            "homepage": "https://github.com/IcecaveStudios/isolator",
+            "description": "PSR-7 message implementation that also provides common utility methods",
             "keywords": [
-                "fake",
-                "mock",
-                "phake",
-                "phpunit",
-                "test",
-                "unit"
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
             ],
-            "time": "2014-08-12 03:16:11"
+            "time": "2019-04-01T06:40:32+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "1.5.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "a4bee9f4b344b66e0a0d96c7afae1e92edf385fe"
+                "reference": "d39c56a46b3ebe1f3696479966cd2b9f50aaa24f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/a4bee9f4b344b66e0a0d96c7afae1e92edf385fe",
-                "reference": "a4bee9f4b344b66e0a0d96c7afae1e92edf385fe",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d39c56a46b3ebe1f3696479966cd2b9f50aaa24f",
+                "reference": "d39c56a46b3ebe1f3696479966cd2b9f50aaa24f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.3.3"
             },
             "require-dev": {
-                "json-schema/json-schema-test-suite": "1.1.0",
+                "json-schema/json-schema-test-suite": "1.2.0",
                 "phpdocumentor/phpdocumentor": "~2",
-                "phpunit/phpunit": "~3.7"
+                "phpunit/phpunit": "^4.8.22"
             },
             "bin": [
                 "bin/validate-json"
@@ -318,7 +242,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "4.0.x-dev"
                 }
             },
             "autoload": {
@@ -328,7 +252,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD-3-Clause"
+                "MIT"
             ],
             "authors": [
                 {
@@ -354,35 +278,37 @@
                 "json",
                 "schema"
             ],
-            "time": "2015-09-08 22:28:04"
+            "time": "2016-12-22T16:43:46+00:00"
         },
         {
             "name": "kriswallsmith/buzz",
-            "version": "dev-master",
+            "version": "v0.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
+                "reference": "4977b7d44dbef49cdc641f14be6512fdcfe32f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
-                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/4977b7d44dbef49cdc641f14be6512fdcfe32f12",
+                "reference": "4977b7d44dbef49cdc641f14be6512fdcfe32f12",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "guzzlehttp/psr7": "^1.4",
+                "php": "^5.4 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "php-http/client-integration-tests": "^0.6.2",
+                "symfony/phpunit-bridge": "^3.4 || ^4.0"
             },
             "suggest": {
                 "ext-curl": "*"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Buzz": "lib/"
+                "psr-4": {
+                    "Buzz\\": "lib/Buzz"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -402,7 +328,7 @@
                 "curl",
                 "http client"
             ],
-            "time": "2015-06-25 17:26:56"
+            "time": "2018-03-19T10:34:40+00:00"
         },
         {
             "name": "magento-hackathon/magento-composer-installer",
@@ -410,12 +336,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Cotya/magento-composer-installer.git",
-                "reference": "c89683ac8e8a925abb8658bbf164f95b3ec4ad56"
+                "reference": "ceb006c2e45a4f72db34b0c024ca3f28aa8de099"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Cotya/magento-composer-installer/zipball/c89683ac8e8a925abb8658bbf164f95b3ec4ad56",
-                "reference": "c89683ac8e8a925abb8658bbf164f95b3ec4ad56",
+                "url": "https://api.github.com/repos/Cotya/magento-composer-installer/zipball/ceb006c2e45a4f72db34b0c024ca3f28aa8de099",
+                "reference": "ceb006c2e45a4f72db34b0c024ca3f28aa8de099",
                 "shasum": ""
             },
             "archive": {
@@ -425,35 +351,34 @@
                 ]
             },
             "require": {
-                "composer-plugin-api": "1.0.0",
+                "composer-plugin-api": "^1.0",
                 "eloquent/composer-config-reader": "2.*",
-                "php": ">=5.3.2"
+                "php": ">=5.5",
+                "symfony/console": "^2.5|^3.0"
             },
             "require-dev": {
-                "composer/composer": "*@dev",
-                "firegento/phpcs": "1.1.0",
-                "mikey179/vfsstream": "*",
-                "phpunit/phpunit": "*",
-                "phpunit/phpunit-mock-objects": "dev-master",
-                "squizlabs/php_codesniffer": "1.4.7",
-                "symfony/process": "*"
+                "composer/composer": "1.0.*",
+                "cotya/composer-test-framework": "dev-master",
+                "mikey179/vfsstream": "~1.4",
+                "phpunit/phpunit": "~4.3",
+                "phpunit/phpunit-mock-objects": "~2.3",
+                "squizlabs/php_codesniffer": "~2.1",
+                "symfony/process": "~2.5"
             },
             "suggest": {
                 "colinmollenhour/modman": "*",
-                "magento-hackathon/composer-command-integrator": "*",
-                "theseer/autoload": "~1.14",
-                "zetacomponents/console-tools": "dev-master"
+                "theseer/autoload": "~1.14"
             },
+            "bin": [
+                "bin/magento-composer-installer.php"
+            ],
             "type": "composer-plugin",
             "extra": {
-                "composer-command-registry": [
-                    "MagentoHackathon\\Composer\\Magento\\Command\\DeployCommand"
-                ],
                 "class": "MagentoHackathon\\Composer\\Magento\\Plugin"
             },
             "autoload": {
                 "psr-0": {
-                    "MagentoHackathon\\Composer\\Magento": "src/"
+                    "MagentoHackathon\\Composer": "src/"
                 }
             },
             "autoload-dev": {
@@ -491,27 +416,171 @@
                 }
             ],
             "description": "Composer installer for Magento modules",
-            "homepage": "https://github.com/Cotya/magento-composer-installer",
+            "homepage": "https://github.com/magento-hackathon/magento-composer-installer",
             "keywords": [
                 "composer-installer",
                 "magento"
             ],
             "support": {
-                "source": "https://github.com/Cotya/magento-composer-installer/tree/2.1",
+                "source": "https://github.com/Cotya/magento-composer-installer/tree/master",
                 "issues": "https://github.com/Cotya/magento-composer-installer/issues"
             },
-            "time": "2015-03-25 12:24:13"
+            "time": "2018-12-29T18:08:44+00:00"
         },
         {
-            "name": "sixbysix/realtime-despatch",
+            "name": "psr/http-message",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://realtime-despatch-magento-module.codebasehq.com/development/orderflow-api-library.git",
-                "reference": "18de7dff37293e9ab307517b235748af7783191a"
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
             },
             "require": {
-                "kriswallsmith/buzz": "*"
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2018-11-21T13:42:00+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "sixbysix/realtime-despatch",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/realtimedespatch/orderflow-api.git",
+                "reference": "2a4d0a4922eecc9924bbf2734481aa6d3cdb4e95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/realtimedespatch/orderflow-api/zipball/2a4d0a4922eecc9924bbf2734481aa6d3cdb4e95",
+                "reference": "2a4d0a4922eecc9924bbf2734481aa6d3cdb4e95",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "0.16.1",
+                "php": "^5.4 || ^7.0"
             },
             "type": "library",
             "autoload": {
@@ -519,25 +588,211 @@
                     "SixBySix\\RealtimeDespatch\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "OSL-3.0"
             ],
             "authors": [
                 {
-                    "name": "Tom Birch",
-                    "email": "thomb2233@gmail.com"
+                    "name": "SixBySix",
+                    "email": "support@thesixbysix.co.uk"
                 }
             ],
-            "description": "Real Time Despatch Integration Library",
-            "time": "2015-07-04 13:10:20"
+            "description": "Real Time Despatch API Integration Library",
+            "time": "2019-05-10T10:22:53+00:00"
+        },
+        {
+            "name": "symfony/console",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "8e1d1e406dd31727fa70cd5a99cda202e9d6a5c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/8e1d1e406dd31727fa70cd5a99cda202e9d6a5c6",
+                "reference": "8e1d1e406dd31727fa70cd5a99cda202e9d6a5c6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/debug": "~2.8|~3.0|~4.0",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<3.4",
+                "symfony/process": "<3.3"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~3.3|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
+                "symfony/lock": "~3.4|~4.0",
+                "symfony/process": "~3.3|~4.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/lock": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-05-09T08:42:51+00:00"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "681afbb26488903c5ac15e63734f1d8ac430c9b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/681afbb26488903c5ac15e63734f1d8ac430c9b9",
+                "reference": "681afbb26488903c5ac15e63734f1d8ac430c9b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+            },
+            "require-dev": {
+                "symfony/http-kernel": "~2.8|~3.0|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Debug\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-04-11T09:48:14+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fe5e94c604826c35a32fa832f35bd036b6799609",
+                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "sixbysix/realtime-despatch": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

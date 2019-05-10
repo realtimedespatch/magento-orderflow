@@ -1,0 +1,1 @@
+../../../../vendor/ajbonner/magento-composer-autoload/app/code/community/Varien/Autoload.php
