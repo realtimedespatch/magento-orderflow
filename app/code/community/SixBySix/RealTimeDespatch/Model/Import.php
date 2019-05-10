@@ -23,58 +23,15 @@ class SixBySix_RealTimeDespatch_Model_Import extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Sets the request body.
-     *
-     * @param string $requestBody
-     *
-     * @return SixBySix_RealTimeDespatch_Model_Import
-     */
-    public function setRequestBody($requestBody)
-    {
-        $this->setMessageIdFromRequestBody($requestBody);
-
-        return parent::setRequestBody(gzdeflate($requestBody, 9));
-    }
-
-    /**
      * Returns the request body.
      *
      * @return string
      */
     public function getRequestBody()
     {
-        if ( ! parent::getRequestBody()) {
-            return 'Request Unavailable';
-        }
-
-        $xml = '';
-
-        try
-        {
-            $dom = new \DOMDocument;
-            $dom->preserveWhiteSpace = false;
-            $dom->loadXML(gzinflate(parent::getRequestBody()));
-            $dom->formatOutput = true;
-            $xml = $dom->saveXml();
-        }
-        catch (\Exception $ex)
-        {
-            $xml = 'Request Unavailable';
-        }
-
-        return $xml;
-    }
-
-    /**
-     * Sets the response body.
-     *
-     * @param string $responseBody
-     *
-     * @return SixBySix_RealTimeDespatch_Model_Import
-     */
-    public function setResponseBody($responseBody)
-    {
-        return parent::setResponseBody(gzdeflate($responseBody, 9));
+        return Mage::getModel('realtimedespatch/request')
+            ->load($this->getRequestId())
+            ->getRequestBody();
     }
 
     /**
@@ -84,11 +41,9 @@ class SixBySix_RealTimeDespatch_Model_Import extends Mage_Core_Model_Abstract
      */
     public function getResponseBody()
     {
-        if ( ! parent::getResponseBody()) {
-            return 'Response Unavailable';
-        }
-
-        return gzinflate(parent::getResponseBody());
+        return Mage::getModel('realtimedespatch/request')
+            ->load($this->getRequestId())
+            ->getResponseBody();
     }
 
     /**
