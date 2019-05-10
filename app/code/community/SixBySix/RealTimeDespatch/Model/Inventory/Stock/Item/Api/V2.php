@@ -34,7 +34,7 @@ class SixBySix_RealTimeDespatch_Model_Inventory_Stock_Item_Api_V2 extends Mage_A
         foreach ($productSeqs as $index => $seq) {
             $body = $productQtys[$index];
 
-            if ($seq->lastOrderExported) {
+            if (isset($seq->lastOrderExported) && $seq->lastOrderExported) {
                 $body->lastOrderExported = $seq->lastOrderExported;
             }
 
