@@ -41,9 +41,8 @@ Note that the two approaches cannot be used interchangeably, if Composer is used
 
 <h3>PHP Compatibility</h3>
 
-- 5.3
-- 5.4
-- 5.5
+- 5.x (Module Version 1.x)
+- 7.x (Module Version 2.x)
 
 <h3>Support</h3>
 
