@@ -41,7 +41,9 @@ Note that the two approaches cannot be used interchangeably, if Composer is used
 
 3. If you are installing the module on a version of Magento prior to either 1.9.3.3, or 1.14.3.3 then please enable template symlinks.
 
-`Advanced > Developer > Template Settings > Allow Symlinks`
+```
+Advanced > Developer > Template Settings > Allow Symlinks
+```
 
 # Compatibility
 
@@ -78,4 +80,4 @@ The Licensor of the extension is Realtime Despatch.
 
 # Author
 
-<p>The author/maintainer of the extension up to its current release (1.0.0.38) is <a href="http://www.sixbysix.co.uk">Six By Six</a></p>
+<p>The author/maintainer of the extension up to its current release (2.0.0) is <a href="http://www.sixbysix.co.uk">Six By Six</a></p>
