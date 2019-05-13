@@ -32,11 +32,17 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_Grid extends Mage_Adminh
             ->addFieldToFilter('main_table.type', array('eq' => $this->getOperationType()))
             ->addFieldToFilter('main_table.entity', array('eq' => $this->getEntityType()));
 
-	    $importLinesTable = Mage::getSingleton('core/resource')->getTableName('realtimedespatch_import_lines');
+        $requestsTable = Mage::getSingleton('core/resource')->getTableName('realtimedespatch_requests');
+        $importLinesTable = Mage::getSingleton('core/resource')->getTableName('realtimedespatch_import_lines');
 
-	    $collection->getSelect()->join(
-		    array('t2' => $importLinesTable),
+        $collection->getSelect()->join(
+            array('t2' => $importLinesTable),
             'main_table.entity_id = t2.import_id'
+        );
+
+        $collection->getSelect()->join(
+            array('t3' => $requestsTable),
+            'main_table.request_id = t3.entity_id'
         );
 
         $collection->getSelect()->group(
@@ -65,7 +71,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_Grid extends Mage_Adminh
         $this->addColumn('message_id', array(
             'header'   => Mage::helper('realtimedespatch')->__('Message ID'),
             'align'    => 'left',
-            'index'    => 'message_id',
+            'index'    => 't3.message_id',
             'renderer' => new SixBySix_RealTimeDespatch_Block_Adminhtml_Renderer_Request_Id(),
         ));
 
@@ -120,7 +126,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Imports_Grid extends Mage_Adminh
                 ),
                 'filter'   => false,
                 'sortable' => false,
-        ));
+            ));
 
         Mage::dispatchEvent('adminhtml_orderflow_imports_grid_prepare_columns', array('block' => $this));
 

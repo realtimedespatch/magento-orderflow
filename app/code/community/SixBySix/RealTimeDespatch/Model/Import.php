@@ -84,11 +84,9 @@ class SixBySix_RealTimeDespatch_Model_Import extends Mage_Core_Model_Abstract
      */
     public function getMessageId()
     {
-        if ( ! parent::getMessageId()) {
-            return 'Unavailable';
-        }
-
-        return parent::getMessageId();
+        return Mage::getModel('realtimedespatch/request')
+            ->load($this->getRequestId())
+            ->getMessageId();
     }
 
     /**

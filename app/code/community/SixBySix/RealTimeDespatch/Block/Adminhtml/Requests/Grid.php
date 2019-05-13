@@ -82,7 +82,7 @@ class SixBySix_RealTimeDespatch_Block_Adminhtml_Requests_Grid extends Mage_Admin
                 'Inventory' => Mage::helper('realtimedespatch')->__('Inventory'),
                 'Shipment'  => Mage::helper('realtimedespatch')->__('Shipment')
             ),
-            'filter_index' => 'type',
+            'filter_index' => 'main_table.type',
         ));
 
         $this->addColumn('Received', array(
